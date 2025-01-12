@@ -2,7 +2,7 @@ import { SectionTitle, Spacer } from '../../components'
 
 const Filosofia = () => {
   return (
-    <section className='mt-12 mb-20'>
+    <section className='mt-12'>
       <SectionTitle text='¡El mejor servicio, con la mejor calidad!' />
       <div className='container grid grid-cols-1 lg:grid-cols-3 mt-6 gap-10'>
         <div className='border p-5 rounded-lg shadow-lg w-full mx-auto flex flex-col'>

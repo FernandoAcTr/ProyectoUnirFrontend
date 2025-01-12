@@ -24,7 +24,7 @@ const Header = () => {
             )
           }}
         />
-        <button className='border border-white p-2 px-5 rounded-full'>Tienda</button>
+        <button className='border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all'>Tienda</button>
       </div>
     </header>
   )

@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`flex justify-between items-center h-16 px-5 fixed top-0 inset-x-0 transition-all z-10 ${
+      className={`flex justify-between items-center h-16 px-5 fixed top-0 inset-x-0 transition-all z-20 ${
         isOver ? 'bg-primary-700 shadow-md' : 'bg-transparent'
       }`}
     >

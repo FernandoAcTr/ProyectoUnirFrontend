@@ -4,6 +4,7 @@ import Nuevo from './nuevo'
 import Mapa from './mapa'
 import CallToAction from './call_to_action'
 import Testimonials from './testimonials'
+import Footer from './footer'
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
       <Mapa />
       <CallToAction />
       <Testimonials />
+      <Footer />
     </div>
   )
 }

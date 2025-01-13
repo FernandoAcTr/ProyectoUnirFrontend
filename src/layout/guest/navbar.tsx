@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import { useScrollDown } from '../../hooks'
 
 export type NavbarProps = {
@@ -8,8 +8,13 @@ export type NavbarProps = {
 
 export const Navbar = () => {
   const [isOver, setIsOver] = useState(false)
+  const location = useLocation()
 
   useScrollDown((isScrolled) => setIsOver(isScrolled))
+
+  const isMenuActive = (path: string): boolean => {
+    return location.pathname === path
+  }
 
   return (
     <nav
@@ -22,27 +27,27 @@ export const Navbar = () => {
       </Link>
 
       <ul className='flex items-center gap-5'>
-        <li className='opacity-100'>
-          <Link to='#' className='text-white'>
+        <li className={isMenuActive('/') ? 'opacity-100' : 'opacity-40'}>
+          <Link to='/' className='text-white'>
             Inicio
           </Link>
         </li>
-        <li className='opacity-60'>
+        <li className='opacity-40'>
           <Link to='#' className='text-white'>
             Tienda
           </Link>
         </li>
-        <li className='opacity-60'>
-          <Link to='#' className='text-white'>
+        <li className={isMenuActive('/contacto') ? 'opacity-100' : 'opacity-40'}>
+          <Link to='/contacto' className='text-white'>
             Contacto
           </Link>
         </li>
-        <li className='opacity-60'>
+        <li className='opacity-40'>
           <Link to='#' className='text-white'>
             Ayuda
           </Link>
         </li>
-        <li className='opacity-60'>
+        <li className='opacity-40'>
           <i className='fa-solid fa-cart-plus text-white'></i>
         </li>
       </ul>

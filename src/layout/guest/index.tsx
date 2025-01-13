@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router'
 import { Navbar } from './navbar'
+import Footer from './footer'
 
 const GuestLayout = () => {
   return (
@@ -8,6 +9,7 @@ const GuestLayout = () => {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   )
 }

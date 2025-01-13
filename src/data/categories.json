@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "descripcion": "Lentes oftálmicos"
+    },
+    {
+        "id": "2",
+        "descripcion": "Lentes de Sol"
+    },
+    {
+        "id": "3",
+        "descripcion": "Lentes de Seguridad"
+    },
+    {
+        "id": "4",
+        "descripcion": "Accesorios"
+    }
+]

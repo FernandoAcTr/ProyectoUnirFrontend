@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "descripcion": "Ranurado"
+    },
+    {
+        "id": "2",
+        "descripcion": "Aro Completo"
+    },
+    {
+        "id": "3",
+        "descripcion": "Volado"
+    },
+    {
+        "id": "4",
+        "descripcion": "Acetato"
+    },
+    {
+        "id": "5",
+        "descripcion": "Metálico"
+    },
+    {
+        "id": "6",
+        "descripcion": "Flex"
+    }
+]

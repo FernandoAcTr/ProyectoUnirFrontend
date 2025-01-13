@@ -1,0 +1,92 @@
+[
+    {
+        "id": "1",
+        "razon_social": "Sporer, Luettgen and Kautzer",
+        "rfc": "XAXX010101000",
+        "domicilio": "5932 Lynn Parks\nNew Colinville, OH 56687",
+        "telefono": "1-774-217-0667",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "2",
+        "razon_social": "Nader, Abernathy and Beier",
+        "rfc": "XAXX010101000",
+        "domicilio": "7631 Kunde Street Suite 431\nKrystalside, NV 15500",
+        "telefono": "1-650-489-2064",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "3",
+        "razon_social": "Boyer, Fisher and Senger",
+        "rfc": "XAXX010101000",
+        "domicilio": "187 Hirthe Locks\nBrettstad, MN 99276",
+        "telefono": "425.664.0615",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "4",
+        "razon_social": "Cole Ltd",
+        "rfc": "XAXX010101000",
+        "domicilio": "56153 Donny Green Suite 551\nNorth Grayce, IA 10176",
+        "telefono": "+1.586.913.3681",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "5",
+        "razon_social": "Daniel-Schmitt",
+        "rfc": "XAXX010101000",
+        "domicilio": "22469 Alycia Trail Suite 928\nNew Beau, WV 15737",
+        "telefono": "458-363-4739",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "6",
+        "razon_social": "Okuneva, Wunsch and Ankunding",
+        "rfc": "XAXX010101000",
+        "domicilio": "84752 Lauren Branch\nSatterfieldborough, ID 44224-1144",
+        "telefono": "+1-979-277-3982",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "7",
+        "razon_social": "Hoeger Inc",
+        "rfc": "XAXX010101000",
+        "domicilio": "9824 Kohler Creek\nWest Alisha, CA 47866-1887",
+        "telefono": "(605) 464-6733",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "8",
+        "razon_social": "Brown LLC",
+        "rfc": "XAXX010101000",
+        "domicilio": "824 Alaina Keys\nWavaborough, DE 04076",
+        "telefono": "+1-754-759-8677",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "9",
+        "razon_social": "Langosh-Boyer",
+        "rfc": "XAXX010101000",
+        "domicilio": "931 Labadie Garden\nLake Rebeka, MT 32846",
+        "telefono": "+1-458-586-0936",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    },
+    {
+        "id": "10",
+        "razon_social": "Mayert, Kovacek and Tromp",
+        "rfc": "XAXX010101000",
+        "domicilio": "941 Bruen River Apt. 147\nRippinside, GA 51848",
+        "telefono": "1-205-460-7195",
+        "created_at": "2025-01-13 23:12:00",
+        "updated_at": "2025-01-13 23:12:00"
+    }
+]

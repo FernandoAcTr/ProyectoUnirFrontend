@@ -1,0 +1,122 @@
+[
+    {
+        "id": "1",
+        "descripcion": "Cremin PLC"
+    },
+    {
+        "id": "2",
+        "descripcion": "Predovic-Hegmann"
+    },
+    {
+        "id": "3",
+        "descripcion": "Tremblay-Hammes"
+    },
+    {
+        "id": "4",
+        "descripcion": "Gulgowski-Shanahan"
+    },
+    {
+        "id": "5",
+        "descripcion": "Herzog, Larkin and Friesen"
+    },
+    {
+        "id": "6",
+        "descripcion": "Weber-Lemke"
+    },
+    {
+        "id": "7",
+        "descripcion": "Thiel, Donnelly and Gerhold"
+    },
+    {
+        "id": "8",
+        "descripcion": "Kshlerin PLC"
+    },
+    {
+        "id": "9",
+        "descripcion": "Jaskolski Inc"
+    },
+    {
+        "id": "10",
+        "descripcion": "Orn-Terry"
+    },
+    {
+        "id": "11",
+        "descripcion": "Hayes Inc"
+    },
+    {
+        "id": "12",
+        "descripcion": "McKenzie LLC"
+    },
+    {
+        "id": "13",
+        "descripcion": "Powlowski and Sons"
+    },
+    {
+        "id": "14",
+        "descripcion": "Fadel-Swaniawski"
+    },
+    {
+        "id": "15",
+        "descripcion": "Carter LLC"
+    },
+    {
+        "id": "16",
+        "descripcion": "Walker, Rogahn and Pacocha"
+    },
+    {
+        "id": "17",
+        "descripcion": "McCullough and Sons"
+    },
+    {
+        "id": "18",
+        "descripcion": "Kautzer, Rodriguez and Mitchell"
+    },
+    {
+        "id": "19",
+        "descripcion": "Runolfsdottir-Kertzmann"
+    },
+    {
+        "id": "20",
+        "descripcion": "Anderson-Greenholt"
+    },
+    {
+        "id": "21",
+        "descripcion": "Baumbach Group"
+    },
+    {
+        "id": "22",
+        "descripcion": "Rosenbaum, Stehr and Leffler"
+    },
+    {
+        "id": "23",
+        "descripcion": "Mills, Bergstrom and Grimes"
+    },
+    {
+        "id": "24",
+        "descripcion": "Kulas LLC"
+    },
+    {
+        "id": "25",
+        "descripcion": "Conroy-Satterfield"
+    },
+    {
+        "id": "26",
+        "descripcion": "Prohaska-Witting"
+    },
+    {
+        "id": "27",
+        "descripcion": "Kuhic, Collins and Kutch"
+    },
+    {
+        "id": "28",
+        "descripcion": "Pouros PLC"
+    },
+    {
+        "id": "29",
+        "descripcion": "Powlowski, Schamberger and Roob"
+    },
+    {
+        "id": "30",
+        "descripcion": "Jones-White"
+    }
+]

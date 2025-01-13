@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router'
 import HomePage from './pages/home'
 import GuestLayout from './layout/guest'
 import ContactPage from './pages/contact'
+import PadecimietosPage from './pages/padecimientos'
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const routes = createBrowserRouter([
       {
         path: '/contacto',
         element: <ContactPage />,
+      },
+      {
+        path: '/padecimientos',
+        element: <PadecimietosPage />,
       },
     ],
   },

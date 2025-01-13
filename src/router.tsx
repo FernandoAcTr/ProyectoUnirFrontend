@@ -3,6 +3,7 @@ import HomePage from './pages/home'
 import GuestLayout from './layout/guest'
 import ContactPage from './pages/contact'
 import PadecimietosPage from './pages/padecimientos'
+import FormaCara from './pages/forma_cara'
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const routes = createBrowserRouter([
       {
         path: '/padecimientos',
         element: <PadecimietosPage />,
+      },
+      {
+        path: '/forma-cara',
+        element: <FormaCara />,
       },
     ],
   },

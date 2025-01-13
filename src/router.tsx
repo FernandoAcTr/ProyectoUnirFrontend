@@ -4,6 +4,7 @@ import GuestLayout from './layout/guest'
 import ContactPage from './pages/contact'
 import PadecimietosPage from './pages/padecimientos'
 import FormaCara from './pages/forma_cara'
+import Faqs from './pages/faqs'
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
       {
         path: '/forma-cara',
         element: <FormaCara />,
+      },
+      {
+        path: '/faqs',
+        element: <Faqs />,
       },
     ],
   },

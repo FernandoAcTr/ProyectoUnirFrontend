@@ -9,6 +9,7 @@ import Tienda from './pages/tienda'
 import DetalleProducto from './pages/tienda/detalle'
 import PagarPage from './pages/tienda/pagar'
 import SuccessPage from './pages/tienda/success'
+import DevolverPage from './pages/tienda/devolver'
 
 const routes = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const routes = createBrowserRouter([
       {
         path: '/tienda/orden/:id/success',
         element: <SuccessPage />,
+      },
+      {
+        path: '/tienda/devolver',
+        element: <DevolverPage />,
       },
     ],
   },

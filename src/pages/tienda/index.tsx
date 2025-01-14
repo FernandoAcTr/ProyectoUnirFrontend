@@ -4,6 +4,7 @@ import { Category, Product } from '../../types'
 import Header from './header'
 import { productService } from '../../services/product.service'
 import { ProductCard } from './ProductCard'
+import { Link } from 'react-router'
 
 const Tienda = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -141,10 +142,13 @@ const Tienda = () => {
               </ul>,
             ]}
           />
+          <Link to={'/tienda/devolver'} className='mt-6 text-sm text-primary-900 hover:underline block'>
+            Devolver pedido
+          </Link>
         </div>
 
         <div className='w-full md:w-fit flex-grow '>
-          <div className='mb-6 flex justify-end gap-4'>
+          <div className='mb-6 flex justify-end items-center gap-4'>
             <input
               type='text'
               placeholder='Buscar productos...'

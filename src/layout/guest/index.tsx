@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router'
 import { Navbar } from './navbar'
+import { Cart } from './cart'
 import Footer from './footer'
 
 const GuestLayout = () => {
@@ -10,6 +11,7 @@ const GuestLayout = () => {
         <Outlet />
       </main>
       <Footer />
+      <Cart />
     </>
   )
 }

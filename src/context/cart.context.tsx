@@ -5,11 +5,12 @@ type CartItem = Product & { quantity: number }
 
 type ContextType = {
   products: CartItem[]
-  opened: boolean
-  selectProduct: (product: Product, quantity?: number) => void
+  isOpened: boolean
+  addProduct: (product: Product, quantity?: number) => void
   removeProduct: (product: Product, quantity?: number) => void
   openCart: () => void
   closeCart: () => void
+  toggleCart: () => void
 }
 
 const CartContextContext = createContext<ContextType | null>(null)
@@ -43,16 +44,18 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
 
   const openCart = () => setOpened(true)
   const closeCart = () => setOpened(false)
+  const toggleCart = () => setOpened((prev) => !prev)
 
   return (
     <CartContextContext.Provider
       value={{
         products,
-        selectProduct,
+        addProduct: selectProduct,
         removeProduct,
-        opened,
+        isOpened: opened,
         openCart,
         closeCart,
+        toggleCart,
       }}
     >
       {children}

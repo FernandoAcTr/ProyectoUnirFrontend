@@ -3,12 +3,14 @@ import Header from '../header'
 import { Product } from '../../../types'
 import { useNavigate, useParams } from 'react-router'
 import { productService } from '../../../services/product.service'
+import { useCartContextContext } from '../../../context/cart.context'
 
 const DetalleProducto = () => {
   const [product, setProduct] = useState<Product>()
   const [quantity, setQuantity] = useState(1)
   const params = useParams()
   const navigate = useNavigate()
+  const { addProduct } = useCartContextContext()
 
   useEffect(() => {
     const id = params.id
@@ -54,7 +56,10 @@ const DetalleProducto = () => {
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 className='w-20 px-3 py-2 border border-gray-300 rounded-md'
               />
-              <button className='px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors'>
+              <button
+                className='px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors'
+                onClick={() => addProduct(product, quantity)}
+              >
                 Agregar al Carrito
               </button>
             </div>

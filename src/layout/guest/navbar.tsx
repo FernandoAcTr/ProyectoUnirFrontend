@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { useScrollDown } from '../../hooks'
+import { useCartContextContext } from '../../context/cart.context'
 
 export type NavbarProps = {
   //
@@ -9,6 +10,7 @@ export type NavbarProps = {
 export const Navbar = () => {
   const [isOver, setIsOver] = useState(false)
   const location = useLocation()
+  const { toggleCart, products } = useCartContextContext()
 
   useScrollDown((isScrolled) => setIsOver(isScrolled))
 
@@ -23,7 +25,7 @@ export const Navbar = () => {
       }`}
     >
       <Link className='navbar-brand' to='/'>
-        <img src='/img/logo-ligth.png' alt='Logo' width='70' />
+        <img src='/img/logo-light.png' alt='Logo' width='70' />
       </Link>
 
       <ul className='flex items-center gap-5'>
@@ -32,7 +34,7 @@ export const Navbar = () => {
             Inicio
           </Link>
         </li>
-        <li className='opacity-40'>
+        <li className={isMenuActive('/tienda') ? 'opacity-100' : 'opacity-40'}>
           <Link to='/tienda' className='text-white'>
             Tienda
           </Link>
@@ -86,8 +88,11 @@ export const Navbar = () => {
           </div>
         </li>
 
-        <li className='opacity-40'>
-          <i className='fa-solid fa-cart-plus text-white'></i>
+        <li className={`text-white ${products.length > 0 ? 'opacity-100' : 'opacity-40'}`}>
+          <button onClick={toggleCart}>
+            <i className='fa-solid fa-cart-plus mr-2'></i>
+            <span>({products.length})</span>
+          </button>
         </li>
       </ul>
     </nav>

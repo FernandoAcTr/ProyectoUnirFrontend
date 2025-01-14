@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 export type CartProps = {}
 
 export const Cart = () => {
-  const { isOpened, products, toggleCart, removeProduct } = useCartContextContext()
+  const { isOpened, products, toggleCart, removeProduct, totalProducts } = useCartContextContext()
 
   const total = useMemo(() => products.reduce((acc, product) => acc + product.precio * product.quantity, 0), [products])
 
@@ -59,13 +59,15 @@ export const Cart = () => {
             <span className='font-bold text-accent-600'>{formatMoney(total)}</span>
           </div>
 
-          <Link
-            to={'/tienda/pagar'}
-            className='w-full py-2 text-white bg-accent-600 rounded block text-center'
-            onClick={toggleCart}
-          >
-            Pagar
-          </Link>
+          {totalProducts > 0 && (
+            <Link
+              to={'/tienda/pagar'}
+              className='w-full py-2 text-white bg-accent-600 rounded block text-center'
+              onClick={toggleCart}
+            >
+              Pagar
+            </Link>
+          )}
         </div>
       </div>
     </aside>

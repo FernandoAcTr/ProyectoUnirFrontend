@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import { Product } from '../../types'
 import { useCartContextContext } from '../../context/cart.context'
+import { Spacer } from '../../components'
+import { formatMoney } from '../../utils/text'
 
 type ProductCardProps = {
   product: Product
@@ -10,7 +12,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const { addProduct } = useCartContextContext()
 
   return (
-    <div className='border rounded-lg shadow-sm overflow-hidden'>
+    <div className='border rounded-lg shadow-sm overflow-hidden flex flex-col'>
       <div className='relative'>
         <img
           src={product.details?.image?.foto_url || '/placeholder.png'}
@@ -18,10 +20,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           className='w-full h-full object-cover'
         />
       </div>
-      <div className='p-4'>
+      <Spacer />
+      <div className='p-4 flex flex-col'>
         <h3 className='font-semibold text-lg mb-2'>{product.marca?.descripcion}</h3>
         <p className='text-gray-600 text-sm mb-3 line-clamp-2'>{product.descripcion}</p>
-        <p className='text-xl font-bold mb-4'>${product.precio}</p>
+        <p className='text-xl font-bold mb-4'>{formatMoney(product.precio)}</p>
+        <Spacer />
         <div className='flex gap-2'>
           <button
             className='flex-1 bg-accent-500 text-white py-2 px-4 rounded hover:bg-primary/90'

@@ -6,6 +6,7 @@ import { productService } from '../../services/product.service'
 import { ProductCard } from './ProductCard'
 
 const Tienda = () => {
+  const [searchTerm, setSearchTerm] = useState('')
   const [categories, setCategories] = useState<Category[]>([])
   const [brands, setBrands] = useState<Category[]>([])
   const [frameShapes, setFrameShapes] = useState<Category[]>([])
@@ -19,6 +20,12 @@ const Tienda = () => {
     productService.getTipos().then(setFrameTypes)
     productService.getProducts().then(setProducts)
   }, [])
+
+  const filteredProducts = products.filter(
+    (product) =>
+      product.marca?.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
     <div>
@@ -62,10 +69,21 @@ const Tienda = () => {
           />
         </div>
 
-        <div className='w-full md:w-fit flex-grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        <div className='w-full md:w-fit flex-grow '>
+          <div className='mb-6 flex justify-end'>
+            <input
+              type='text'
+              placeholder='Buscar productos...'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className='w-96 p-2 border border-gray-300 rounded'
+            />
+          </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

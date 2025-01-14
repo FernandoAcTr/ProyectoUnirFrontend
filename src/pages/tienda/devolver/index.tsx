@@ -64,7 +64,7 @@ const DevolverPage = () => {
         </ol>
         <p className='text-xs mt-6'>
           Nota: Los productos deben estar en su empaque original y en perfecto estado para poder ser devueltos. <br />{' '}
-          Si el producto se encuetra dañado o usado la devolución será rechazada.
+          Si el producto se encuetra dañado o usado, la devolución será rechazada.
         </p>
         <h2 className='text-2xl font-bold mb-6 text-center mt-6'>Ingresa el número de tu Orden</h2>
 

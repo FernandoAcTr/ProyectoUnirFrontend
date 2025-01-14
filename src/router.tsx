@@ -8,6 +8,7 @@ import Faqs from './pages/faqs'
 import Tienda from './pages/tienda'
 import DetalleProducto from './pages/tienda/detalle'
 import PagarPage from './pages/tienda/pagar'
+import SuccessPage from './pages/tienda/success'
 
 const routes = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const routes = createBrowserRouter([
       {
         path: '/tienda/pagar',
         element: <PagarPage />,
+      },
+      {
+        path: '/tienda/orden/:id/success',
+        element: <SuccessPage />,
       },
     ],
   },

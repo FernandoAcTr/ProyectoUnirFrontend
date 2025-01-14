@@ -100,7 +100,7 @@ const PagarPage = () => {
                     <span>{formatMoney(total)}</span>
                   </div>
                 </div>
-                <button className='w-full bg-accent-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors'>
+                <button className='w-full bg-accent-600 text-white py-3 px-4 rounded-lg hover:bg-accent-700 transition-colors'>
                   Proceder al pago
                 </button>
               </div>

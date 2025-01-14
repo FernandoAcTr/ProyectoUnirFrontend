@@ -4,7 +4,7 @@ import Header from './header'
 import { formatMoney } from '../../../utils/text'
 
 const PagarPage = () => {
-  const { products } = useCartContextContext()
+  const { products, removeProduct, addProduct } = useCartContextContext()
 
   const subtotal = products.reduce((acc, product) => acc + product.precio * product.quantity, 0)
   const iva = subtotal * 0.16
@@ -58,9 +58,17 @@ const PagarPage = () => {
                       <div className='flex-1'>
                         <h3 className='font-semibold'>{product.descripcion}</h3>
                         <p className='text-gray-600'>Marca: {product.marca?.descripcion}</p>
-                        <p className='text-gray-600'>Cantidad: {product.quantity}</p>
+                        <div className='flex items-center gap-2'>
+                          <p className='text-gray-600'>Cantidad: {product.quantity}</p>
+                          <button className='p-1 text-xs bg-gray-100 rounded' onClick={() => addProduct(product)}>
+                            <i className='fas fa-plus'></i>
+                          </button>
+                          <button className='p-1 text-xs bg-gray-100 rounded' onClick={() => removeProduct(product)}>
+                            <i className='fas fa-minus'></i>
+                          </button>
+                        </div>
                       </div>
-                      <div className='text-right'>
+                      <div className='text-right '>
                         <p className='font-bold text-lg'>{formatMoney(product.precio * product.quantity)}</p>
                       </div>
                     </div>

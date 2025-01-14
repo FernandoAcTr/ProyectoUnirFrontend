@@ -6,6 +6,7 @@ import PadecimietosPage from './pages/padecimientos'
 import FormaCara from './pages/forma_cara'
 import Faqs from './pages/faqs'
 import Tienda from './pages/tienda'
+import DetalleProducto from './pages/tienda/detalle'
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: '/tienda',
         element: <Tienda />,
+      },
+      {
+        path: '/tienda/productos/:id',
+        element: <DetalleProducto />,
       },
     ],
   },

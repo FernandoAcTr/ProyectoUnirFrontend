@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { Product } from '../../types'
 
 type ProductCardProps = {
@@ -20,9 +21,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <p className='text-xl font-bold mb-4'>${product.precio}</p>
         <div className='flex gap-2'>
           <button className='flex-1 bg-accent-500 text-white py-2 px-4 rounded hover:bg-primary/90'>Agregar</button>
-          <button className='flex-1 border border-primary text-primary py-2 px-4 rounded hover:bg-gray-50'>
+          <Link
+            to={`/tienda/productos/${product.id}`}
+            className='flex-1 border border-primary text-primary py-2 px-4 rounded hover:bg-gray-50 text-center'
+          >
             Ver detalles
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { useCartContextContext } from '../../../context/cart.context'
 import Header from './header'
 import { useEffect, useMemo } from 'react'
@@ -6,6 +6,7 @@ import { useEffect, useMemo } from 'react'
 const SuccessPage = () => {
   const { products, clearCart } = useCartContextContext()
   const navigate = useNavigate()
+  const { id: orderId } = useParams()
 
   useEffect(() => {
     if (products.length === 0) {
@@ -25,10 +26,14 @@ const SuccessPage = () => {
       <Header />
       <div className='flex justify-center items-center min-h-[calc(100vh-16rem)] p-4'>
         <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl'>
-          <div className='text-center mb-6'>
+          <div className='text-center mb-8'>
             <i className='fas fa-check-circle text-green-500 text-4xl mb-2'></i>
             <h1 className='text-2xl font-bold text-gray-800'>¡Gracias por tu compra!</h1>
           </div>
+
+          <p className='text-gray-600 mb-2'>
+            Orden #<span className='font-semibold'>{orderId}</span>
+          </p>
 
           <ul className='divide-y divide-gray-200'>
             {products.map((product) => (

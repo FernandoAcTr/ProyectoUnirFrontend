@@ -13,6 +13,10 @@ const Tienda = () => {
   const [frameShapes, setFrameShapes] = useState<Category[]>([])
   const [frameTypes, setFrameTypes] = useState<Category[]>([])
   const [products, setProducts] = useState<Product[]>([])
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [selectedBrand, setSelectedBrand] = useState<string | null>(null)
+  const [selectedShape, setSelectedShape] = useState<string | null>(null)
+  const [selectedType, setSelectedType] = useState<string | null>(null)
 
   useEffect(() => {
     productService.getCategories().then(setCategories)
@@ -37,11 +41,35 @@ const Tienda = () => {
     }
   }
 
-  const filteredProducts = products.filter(
-    (product) =>
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch =
       product.marca?.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+
+    const matchesCategory = selectedCategory ? product.categoria?.id === selectedCategory : true
+    const matchesBrand = selectedBrand ? product.marca?.id === selectedBrand : true
+    const matchesShape = selectedShape ? product.forma?.id === selectedShape : true
+    const matchesType = selectedType ? product.tipo?.id === selectedType : true
+
+    return matchesSearch && matchesCategory && matchesBrand && matchesShape && matchesType
+  })
+
+  const handleFilter = (type: 'category' | 'brand' | 'shape' | 'type', id: string) => {
+    switch (type) {
+      case 'category':
+        setSelectedCategory(selectedCategory === id ? null : id)
+        break
+      case 'brand':
+        setSelectedBrand(selectedBrand === id ? null : id)
+        break
+      case 'shape':
+        setSelectedShape(selectedShape === id ? null : id)
+        break
+      case 'type':
+        setSelectedType(selectedType === id ? null : id)
+        break
+    }
+  }
 
   const sortedAndFilteredProducts = sortProducts(filteredProducts)
 
@@ -57,28 +85,56 @@ const Tienda = () => {
             tabs={[
               <ul className='px-4 py-4 divide-y'>
                 {categories.map((category) => (
-                  <li className='py-2' key={category.id}>
+                  <li
+                    className={`py-2 cursor-pointer hover:text-blue-600 ${
+                      selectedCategory === category.id ? 'text-blue-600 font-semibold' : ''
+                    }`}
+                    key={category.id}
+                    role='button'
+                    onClick={() => handleFilter('category', category.id)}
+                  >
                     {category.descripcion}
                   </li>
                 ))}
               </ul>,
               <ul className='px-4 py-4 divide-y'>
                 {brands.map((brand) => (
-                  <li className='py-2' key={brand.id}>
+                  <li
+                    className={`py-2 cursor-pointer hover:text-blue-600 ${
+                      selectedBrand === brand.id ? 'text-blue-600 font-semibold' : ''
+                    }`}
+                    key={brand.id}
+                    role='button'
+                    onClick={() => handleFilter('brand', brand.id)}
+                  >
                     {brand.descripcion}
                   </li>
                 ))}
               </ul>,
               <ul className='px-4 py-4 divide-y'>
                 {frameShapes.map((shape) => (
-                  <li className='py-2' key={shape.id}>
+                  <li
+                    className={`py-2 cursor-pointer hover:text-blue-600 ${
+                      selectedShape === shape.id ? 'text-blue-600 font-semibold' : ''
+                    }`}
+                    key={shape.id}
+                    role='button'
+                    onClick={() => handleFilter('shape', shape.id)}
+                  >
                     {shape.descripcion}
                   </li>
                 ))}
               </ul>,
               <ul className='px-4 py-4 divide-y'>
                 {frameTypes.map((type) => (
-                  <li className='py-2' key={type.id}>
+                  <li
+                    className={`py-2 cursor-pointer hover:text-blue-600 ${
+                      selectedType === type.id ? 'text-blue-600 font-semibold' : ''
+                    }`}
+                    key={type.id}
+                    role='button'
+                    onClick={() => handleFilter('type', type.id)}
+                  >
                     {type.descripcion}
                   </li>
                 ))}

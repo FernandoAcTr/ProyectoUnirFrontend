@@ -1,5 +1,6 @@
 import { Category } from './category'
 import { Forma } from './forma'
+import { Image } from './image'
 import { Marca } from './marca'
 import { TipoArmazon } from './tipo_armazon'
 
@@ -30,4 +31,5 @@ export type ProductDetail = {
   ancho_total: string
   image_id: string
   sku: string
+  image?: Image
 }

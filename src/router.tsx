@@ -5,6 +5,7 @@ import ContactPage from './pages/contact'
 import PadecimietosPage from './pages/padecimientos'
 import FormaCara from './pages/forma_cara'
 import Faqs from './pages/faqs'
+import Tienda from './pages/tienda'
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const routes = createBrowserRouter([
       {
         path: '/faqs',
         element: <Faqs />,
+      },
+      {
+        path: '/tienda',
+        element: <Tienda />,
       },
     ],
   },

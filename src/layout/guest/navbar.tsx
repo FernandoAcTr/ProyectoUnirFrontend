@@ -33,7 +33,7 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className='opacity-40'>
-          <Link to='#' className='text-white'>
+          <Link to='/tienda' className='text-white'>
             Tienda
           </Link>
         </li>

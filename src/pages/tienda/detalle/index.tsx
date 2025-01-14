@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import Header from '../header'
 import { Product } from '../../../types'
 import { useNavigate, useParams } from 'react-router'
 import { productService } from '../../../services/product.service'
 import { useCartContextContext } from '../../../context/cart.context'
+import Header from './header'
 
 const DetalleProducto = () => {
   const [product, setProduct] = useState<Product>()

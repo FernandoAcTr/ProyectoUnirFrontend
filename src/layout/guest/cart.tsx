@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useCartContextContext } from '../../context/cart.context'
 import { formatMoney } from '../../utils/text'
+import { Link } from 'react-router'
 
 export type CartProps = {}
 
@@ -57,6 +58,14 @@ export const Cart = () => {
             <span className='font-bold'>Total:</span>
             <span className='font-bold text-accent-600'>{formatMoney(total)}</span>
           </div>
+
+          <Link
+            to={'/tienda/pagar'}
+            className='w-full py-2 text-white bg-accent-600 rounded block text-center'
+            onClick={toggleCart}
+          >
+            Pagar
+          </Link>
         </div>
       </div>
     </aside>

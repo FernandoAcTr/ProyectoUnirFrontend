@@ -10,7 +10,7 @@ export type NavbarProps = {
 export const Navbar = () => {
   const [isOver, setIsOver] = useState(false)
   const location = useLocation()
-  const { toggleCart, products } = useCartContextContext()
+  const { toggleCart, totalProducts } = useCartContextContext()
 
   useScrollDown((isScrolled) => setIsOver(isScrolled))
 
@@ -88,10 +88,10 @@ export const Navbar = () => {
           </div>
         </li>
 
-        <li className={`text-white ${products.length > 0 ? 'opacity-100' : 'opacity-40'}`}>
+        <li className={`text-white ${totalProducts > 0 ? 'opacity-100' : 'opacity-40'}`}>
           <button onClick={toggleCart}>
             <i className='fa-solid fa-cart-plus mr-2'></i>
-            <span>({products.length})</span>
+            <span>({totalProducts})</span>
           </button>
         </li>
       </ul>

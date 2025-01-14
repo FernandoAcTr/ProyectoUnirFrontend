@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react'
 import { Product } from '../types'
 
 type CartItem = Product & { quantity: number }
@@ -6,6 +6,7 @@ type CartItem = Product & { quantity: number }
 type ContextType = {
   products: CartItem[]
   isOpened: boolean
+  totalProducts: number
   addProduct: (product: Product, quantity?: number) => void
   removeProduct: (product: Product, quantity?: number) => void
   openCart: () => void
@@ -13,11 +14,22 @@ type ContextType = {
   toggleCart: () => void
 }
 
+const CART_STORAGE_KEY = 'cartProducts'
+
 const CartContextContext = createContext<ContextType | null>(null)
 
 export const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [products, setProducts] = useState<CartItem[]>([])
+  const [products, setProducts] = useState<CartItem[]>(() => {
+    const storedProducts = sessionStorage.getItem(CART_STORAGE_KEY)
+    return storedProducts ? JSON.parse(storedProducts) : []
+  })
   const [opened, setOpened] = useState(false)
+
+  const totalProducts = useMemo(() => products.reduce((acc, p) => acc + p.quantity, 0), [products])
+
+  useEffect(() => {
+    sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(products))
+  }, [products])
 
   const selectProduct = (product: Product, quantity = 1) => {
     const index = products.findIndex((p) => p.id === product.id)
@@ -53,6 +65,7 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
         addProduct: selectProduct,
         removeProduct,
         isOpened: opened,
+        totalProducts,
         openCart,
         closeCart,
         toggleCart,

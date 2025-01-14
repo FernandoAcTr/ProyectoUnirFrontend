@@ -165,9 +165,11 @@ const Tienda = () => {
             </select>
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {sortedAndFilteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {sortedAndFilteredProducts.length === 0 ? (
+              <div className='col-span-full text-center text-gray-500 py-8'>No hay resultados</div>
+            ) : (
+              sortedAndFilteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
+            )}
           </div>
         </div>
       </div>

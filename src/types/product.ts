@@ -6,7 +6,7 @@ import { TipoArmazon } from './tipo_armazon'
 
 export type Product = {
   id: string
-  precio: string
+  precio: number
   descripcion: string
   tipo_armazon_id: string
   marca_id: string

@@ -7,6 +7,7 @@ import { ProductCard } from './ProductCard'
 
 const Tienda = () => {
   const [searchTerm, setSearchTerm] = useState('')
+  const [sortBy, setSortBy] = useState('none')
   const [categories, setCategories] = useState<Category[]>([])
   const [brands, setBrands] = useState<Category[]>([])
   const [frameShapes, setFrameShapes] = useState<Category[]>([])
@@ -21,11 +22,28 @@ const Tienda = () => {
     productService.getProducts().then(setProducts)
   }, [])
 
+  const sortProducts = (products: Product[]) => {
+    switch (sortBy) {
+      case 'price-asc':
+        return [...products].sort((a, b) => a.precio - b.precio)
+      case 'price-desc':
+        return [...products].sort((a, b) => b.precio - a.precio)
+      case 'brand-asc':
+        return [...products].sort((a, b) => (a.marca?.descripcion || '').localeCompare(b.marca?.descripcion || ''))
+      case 'brand-desc':
+        return [...products].sort((a, b) => (b.marca?.descripcion || '').localeCompare(a.marca?.descripcion || ''))
+      default:
+        return products
+    }
+  }
+
   const filteredProducts = products.filter(
     (product) =>
       product.marca?.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  const sortedAndFilteredProducts = sortProducts(filteredProducts)
 
   return (
     <div>
@@ -70,7 +88,7 @@ const Tienda = () => {
         </div>
 
         <div className='w-full md:w-fit flex-grow '>
-          <div className='mb-6 flex justify-end'>
+          <div className='mb-6 flex justify-end gap-4'>
             <input
               type='text'
               placeholder='Buscar productos...'
@@ -78,9 +96,20 @@ const Tienda = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className='w-96 p-2 border border-gray-300 rounded'
             />
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className='p-2 border border-gray-300 rounded'
+            >
+              <option value='none'>Ordenar por</option>
+              <option value='price-asc'>Precio (de bajo a alto)</option>
+              <option value='price-desc'>Precio (de alto a bajo)</option>
+              <option value='brand-asc'>Marca (de A a Z)</option>
+              <option value='brand-desc'>Marca (de Z a A)</option>
+            </select>
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {filteredProducts.map((product) => (
+            {sortedAndFilteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

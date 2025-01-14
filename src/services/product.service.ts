@@ -32,6 +32,7 @@ export class ProductService {
       const image = images.find((image) => image.id === detalle?.image_id)
       return {
         ...product,
+        precio: Number(product.precio),
         details: { ...detalle!, image },
         tipo: tipos.find((tipo) => tipo.id === product.tipo_armazon_id),
         marca: marcas.find((marca) => marca.id === product.marca_id),
@@ -52,6 +53,7 @@ export class ProductService {
     const image = images.find((image) => image.id === detalle?.image_id)
     return {
       ...product,
+      precio: Number(product.precio),
       details: { ...detalle!, image },
       tipo: tipos.find((tipo) => tipo.id === product.tipo_armazon_id),
       marca: marcas.find((marca) => marca.id === product.marca_id),

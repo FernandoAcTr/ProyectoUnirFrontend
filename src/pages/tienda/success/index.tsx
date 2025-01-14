@@ -4,7 +4,7 @@ import Header from './header'
 import { useEffect, useMemo } from 'react'
 
 const SuccessPage = () => {
-  const { products } = useCartContextContext()
+  const { products, clearCart } = useCartContextContext()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -60,6 +60,15 @@ const SuccessPage = () => {
               <span className='text-lg font-bold'>Total pagado:</span>
               <span className='text-lg font-bold'>${total.toFixed(2)}</span>
             </div>
+            <button
+              className='mt-6 w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600'
+              onClick={() => {
+                clearCart()
+                navigate('/tienda')
+              }}
+            >
+              Volver
+            </button>
           </div>
         </div>
       </div>

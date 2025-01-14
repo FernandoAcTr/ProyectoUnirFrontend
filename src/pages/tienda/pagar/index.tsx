@@ -1,14 +1,27 @@
 import { useCartContextContext } from '../../../context/cart.context'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import Header from './header'
 import { formatMoney } from '../../../utils/text'
+import { orderService } from '../../../services/order.service'
+import { useState } from 'react'
+import { Spinner } from '../../../components'
 
 const PagarPage = () => {
-  const { products, removeProduct, addProduct } = useCartContextContext()
+  const { products, removeProduct, addProduct, closeCart } = useCartContextContext()
+  const [isLoading, setIsLoading] = useState(false)
+  const navigate = useNavigate()
 
   const subtotal = products.reduce((acc, product) => acc + product.precio * product.quantity, 0)
   const iva = subtotal * 0.16
   const total = subtotal + iva
+
+  const handlePay = async () => {
+    setIsLoading(true)
+    await orderService.payOrder(products)
+    navigate(`/tienda/orden/${Math.floor(Math.random() * 1000)}/success`)
+    closeCart()
+    setIsLoading(false)
+  }
 
   if (products.length === 0) {
     return (
@@ -100,9 +113,23 @@ const PagarPage = () => {
                     <span>{formatMoney(total)}</span>
                   </div>
                 </div>
-                <button className='w-full bg-accent-600 text-white py-3 px-4 rounded-lg hover:bg-accent-700 transition-colors'>
-                  Proceder al pago
-                </button>
+
+                {isLoading ? (
+                  <button
+                    className='w-full bg-gray-400 text-white py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2'
+                    disabled
+                  >
+                    Procesando pago <Spinner />
+                  </button>
+                ) : (
+                  <button
+                    className='w-full bg-accent-600 text-white py-3 px-4 rounded-lg hover:bg-accent-700 transition-colors'
+                    onClick={handlePay}
+                    disabled={isLoading}
+                  >
+                    Proceder al pago
+                  </button>
+                )}
               </div>
             </div>
           </div>

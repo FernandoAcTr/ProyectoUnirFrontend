@@ -12,6 +12,7 @@ type ContextType = {
   openCart: () => void
   closeCart: () => void
   toggleCart: () => void
+  clearCart: () => void
 }
 
 const CART_STORAGE_KEY = 'cartProducts'
@@ -57,6 +58,7 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
   const openCart = () => setOpened(true)
   const closeCart = () => setOpened(false)
   const toggleCart = () => setOpened((prev) => !prev)
+  const clearCart = () => setProducts([])
 
   return (
     <CartContextContext.Provider
@@ -69,6 +71,7 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
         openCart,
         closeCart,
         toggleCart,
+        clearCart,
       }}
     >
       {children}

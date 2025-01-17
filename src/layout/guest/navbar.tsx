@@ -26,18 +26,14 @@ export const Navbar = () => {
   return (
     <nav
       className={`flex flex-wrap justify-between items-center h-auto py-5 md:h-16 px-5 fixed top-0 inset-x-0 transition-all z-50 
-      ${isOver ? 'bg-primary-700 shadow-md' : 'bg-transparent'} 
-      ${isMobileMenuOpen ? 'bg-primary-700 shadow-lg' : ''}`}
+      ${isOver || isMobileMenuOpen ? 'bg-primary-700 shadow-md' : 'bg-transparent'}`}
     >
       <div className='flex justify-between items-center w-full md:w-auto'>
         <Link className='navbar-brand' to='/'>
           <img src={isMobileMenuOpen ? '/img/logo.png' : '/img/logo-light.png'} alt='Logo' width='70' />
         </Link>
 
-        <button
-          onClick={toggleMobileMenu}
-          className={`md:hidden ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}
-        >
+        <button onClick={toggleMobileMenu} className={`md:hidden ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
           <i className={`fa-solid ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
         </button>
       </div>
@@ -75,7 +71,7 @@ export const Navbar = () => {
             Ayuda
             <i className='fa-solid fa-chevron-down'></i>
           </button>
-          <div className='z-10 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-md shadow w-44 md:absolute md:right-0'>
+          <div className='z-10 hidden group-hover:block bg-white divide-y divide-gray-100 rounded-md shadow w-44 absolute md:right-0'>
             <ul className='py-2 text-sm text-gray-700 dark:text-gray-400' aria-labelledby='dropdownLargeButton'>
               <li>
                 <Link
@@ -106,10 +102,7 @@ export const Navbar = () => {
         </li>
 
         <li className={`w-full md:w-auto text-center ${totalProducts > 0 ? 'opacity-100' : 'opacity-40'}`}>
-          <button
-            onClick={toggleCart}
-            className={`py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}
-          >
+          <button onClick={toggleCart} className={`py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
             <i className='fa-solid fa-cart-plus mr-2'></i>
             <span>({totalProducts})</span>
           </button>

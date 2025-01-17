@@ -4,11 +4,11 @@ import { Separator } from '../../components'
 const Nuevo = () => {
   return (
     <section className='mt-12'>
-      <div className='container flex items-center justify-center gap-10'>
+      <div className='container flex flex-wrap lg:flex-nowrap items-center justify-center gap-10'>
         <img src='/img/lo-nuevo.png' alt='Lentes Nuevos' />
         <div>
-          <h2 className='text-7xl font-light leading-snug'>
-            Encuentra lo <br /> nuevo
+          <h2 className='text-3xl md:text-5xl lg:text-7xl font-light leading-snug text-center lg:text-left'>
+            Encuentra lo nuevo
           </h2>
           <Separator />
           <p className='mt-6 mb-6'>

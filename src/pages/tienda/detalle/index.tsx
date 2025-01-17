@@ -11,7 +11,7 @@ const DetalleProducto = () => {
   const [quantity, setQuantity] = useState(1)
   const params = useParams()
   const navigate = useNavigate()
-  const { addProduct } = useCartContextContext()
+  const { addProduct, openCart } = useCartContextContext()
 
   useEffect(() => {
     const id = params.id
@@ -26,7 +26,7 @@ const DetalleProducto = () => {
 
   const handleAddProduct = (product: Product, quantity: number) => {
     addProduct(product, quantity)
-    toast('Producto agregado al carrito', { type: 'success' })
+    toast('Producto agregado al carrito', { type: 'success', onClick: openCart })
   }
 
   if (!product || !product.details) {

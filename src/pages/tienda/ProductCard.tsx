@@ -10,11 +10,11 @@ type ProductCardProps = {
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const { addProduct } = useCartContextContext()
+  const { addProduct, openCart } = useCartContextContext()
 
   const handleAddProduct = (product: Product) => {
     addProduct(product)
-    toast('Producto agregado al carrito', { type: 'success' })
+    toast('Producto agregado al carrito', { type: 'success', onClick: openCart })
   }
 
   return (

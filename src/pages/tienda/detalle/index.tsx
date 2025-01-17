@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { productService } from '../../../services/product.service'
 import { useCartContextContext } from '../../../context/cart.context'
 import Header from './header'
+import { toast } from 'react-toastify'
 
 const DetalleProducto = () => {
   const [product, setProduct] = useState<Product>()
@@ -22,6 +23,11 @@ const DetalleProducto = () => {
       setProduct(product)
     })
   }, [])
+
+  const handleAddProduct = (product: Product, quantity: number) => {
+    addProduct(product, quantity)
+    toast('Producto agregado al carrito', { type: 'success' })
+  }
 
   if (!product || !product.details) {
     return <div>Cargando...</div>
@@ -58,7 +64,7 @@ const DetalleProducto = () => {
               />
               <button
                 className='px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors'
-                onClick={() => addProduct(product, quantity)}
+                onClick={() => handleAddProduct(product, quantity)}
               >
                 Agregar al Carrito
               </button>

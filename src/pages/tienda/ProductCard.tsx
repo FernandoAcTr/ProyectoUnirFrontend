@@ -3,13 +3,19 @@ import { Product } from '../../types'
 import { useCartContextContext } from '../../context/cart.context'
 import { Spacer } from '../../components'
 import { formatMoney } from '../../utils/text'
+import { toast } from 'react-toastify'
 
 type ProductCardProps = {
   product: Product
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const { addProduct } = useCartContextContext()
+  const { addProduct, openCart } = useCartContextContext()
+
+  const handleAddProduct = (product: Product) => {
+    addProduct(product)
+    toast('Producto agregado al carrito', { type: 'success', onClick: openCart })
+  }
 
   return (
     <div className='border rounded-lg shadow-sm overflow-hidden flex flex-col'>
@@ -29,7 +35,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className='flex gap-2'>
           <button
             className='flex-1 bg-accent-500 text-white py-2 px-4 rounded hover:bg-primary/90'
-            onClick={() => addProduct(product)}
+            onClick={() => handleAddProduct(product)}
           >
             Agregar
           </button>

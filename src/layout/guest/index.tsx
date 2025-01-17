@@ -2,6 +2,7 @@ import { Outlet } from 'react-router'
 import { Navbar } from './navbar'
 import { Cart } from './cart'
 import Footer from './footer'
+import { ToastContainer } from 'react-toastify'
 
 const GuestLayout = () => {
   return (
@@ -12,6 +13,7 @@ const GuestLayout = () => {
       </main>
       <Footer />
       <Cart />
+      <ToastContainer />
     </>
   )
 }

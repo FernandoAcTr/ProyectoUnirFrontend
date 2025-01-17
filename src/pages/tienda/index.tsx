@@ -148,7 +148,7 @@ const Tienda = () => {
         </div>
 
         <div className='w-full md:w-fit flex-grow '>
-          <div className='mb-6 flex justify-end items-center gap-4'>
+          <div className='mb-6 flex flex-wrap justify-end items-center gap-4'>
             <input
               type='text'
               placeholder='Buscar productos...'

@@ -15,7 +15,7 @@ const Header = () => {
           eraseDelay={2500}
           displayTextRenderer={(text) => {
             return (
-              <h1 className='text-3xl lg:text-7xl mb-6 font-bold'>
+              <h1 className='text-3xl lg:text-7xl mb-6 font-bold text-center'>
                 {text.split('').map((char, i) => {
                   const key = `${i}`
                   return <span key={key}>{char}</span>

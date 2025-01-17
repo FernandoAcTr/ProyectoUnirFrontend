@@ -8,14 +8,14 @@ const Header = () => {
         <p>¡Hola! Bienvenido a</p>
         <ReactTypingEffect
           text={['Óptica Tovar', 'La Óptica que Cortazar prefiere.', 'Tu mejor opción.']}
-          cursorClassName='text-7xl'
+          cursorClassName='text-3xl lg:text-7xl'
           typingDelay={500}
           speed={50}
           eraseSpeed={50}
           eraseDelay={2500}
           displayTextRenderer={(text) => {
             return (
-              <h1 className='text-7xl mb-6 font-bold'>
+              <h1 className='text-3xl lg:text-7xl mb-6 font-bold'>
                 {text.split('').map((char, i) => {
                   const key = `${i}`
                   return <span key={key}>{char}</span>
@@ -24,7 +24,9 @@ const Header = () => {
             )
           }}
         />
-        <button className='border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all'>Tienda</button>
+        <button className='border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all'>
+          Tienda
+        </button>
       </div>
     </header>
   )

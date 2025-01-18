@@ -6,9 +6,9 @@ const Testimonials = () => {
       <SectionTitle text='Testimoniales' />
       <div className='testimonials__grid'>
         <blockquote className='testimonial'>
-          <div className='fa-solid fa-quote-left testimonial__content'>
+          <div className='testimonial__content'>
             <i className='fa-solid fa-quote-left testimonial__quote'></i>
-            <p className='fa-solid fa-quote-left testimonial__text'>
+            <p className='testimonial__text'>
               Sin duda alguna es de las majores ópticas en Cortazar, Celaya y la región
             </p>
           </div>
@@ -20,7 +20,7 @@ const Testimonials = () => {
 
         <blockquote className='testimonial'>
           <div className='testimonial__content'>
-            <i className='testimonial__quote'></i>
+            <i className='fa-solid fa-quote-left testimonial__quote'></i>
             <p className='testimonial__text'>
               Excelente servicio, el personal es muy educado y hacen un trabajo de calidad
             </p>
@@ -33,7 +33,7 @@ const Testimonials = () => {
 
         <blockquote className='testimonial'>
           <div className='testimonial__content'>
-            <i className='testimonial__quote'></i>
+            <i className='fa-solid fa-quote-left testimonial__quote'></i>
             <p className='testimonial__text'>
               Fui a tres ópticas antes y en todas me graduaron mal mis lentes, que bueno que me recomendaron a Óptica
               Tovar

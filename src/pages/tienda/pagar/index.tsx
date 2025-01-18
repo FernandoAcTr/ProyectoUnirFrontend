@@ -87,7 +87,6 @@ const PagarPage = () => {
             </div>
           </div>
 
-          <div className='pagar__summary'></div>
           <div className='pagar__summary-card'>
             <h2 className='pagar__summary-title'>
               <i className='fas fa-credit-card pagar__summary-title-icon' />

@@ -1,5 +1,4 @@
 import { SectionTitle, Spacer } from '../../components'
-import '../../assets/css/home.css'
 
 const Filosofia = () => {
   return (

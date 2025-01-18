@@ -1,0 +1,136 @@
+.detalle {
+  @apply p-6;
+}
+
+.detalle__container {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+.detalle__image-container {
+  @apply w-full;
+}
+
+.detalle__image {
+  @apply w-full h-auto object-cover rounded-lg shadow-lg;
+}
+
+.detalle__info {
+  @apply space-y-4;
+}
+
+.detalle__brand {
+  @apply text-3xl font-bold text-gray-800;
+}
+
+.detalle__sku {
+  @apply text-sm text-gray-600;
+}
+
+.detalle__description {
+  @apply text-gray-700;
+}
+
+.detalle__price {
+  @apply text-2xl font-bold text-accent-600;
+}
+
+.detalle__actions {
+  @apply flex items-center gap-4 py-4;
+}
+
+.detalle__quantity {
+  @apply w-20 px-3 py-2 border border-gray-300 rounded-md;
+}
+
+.detalle__add-button {
+  @apply px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors;
+}
+
+.detalle__specs {
+  @apply mt-8;
+}
+
+.detalle__specs-table {
+  @apply w-full border-collapse;
+}
+
+.detalle__specs-body {
+  @apply divide-y divide-gray-200;
+}
+
+.detalle__specs-label {
+  @apply py-2 font-semibold;
+}
+
+.detalle__specs-value {
+  @apply py-2;
+}
+
+.detalle-header {
+  @apply bg-primary-700 h-52 flex flex-col items-center justify-center;
+}
+
+.detalle-header__title {
+  @apply text-3xl mb-6 font-bold text-center text-white;
+}
+
+.store {
+  @apply w-full;
+}
+
+.store__title {
+  @apply my-12;
+}
+
+.store__layout {
+  @apply px-5 md:px-10 flex flex-wrap md:flex-nowrap gap-4;
+}
+
+.store__sidebar {
+  @apply w-full md:w-60 shrink-0;
+}
+
+.store__filter-title {
+  @apply text-xl mb-6;
+}
+
+.store__return-link {
+  @apply mt-6 text-sm text-primary-900 hover:underline block;
+}
+
+.store__content {
+  @apply w-full md:w-fit flex-grow;
+}
+
+.store__controls {
+  @apply mb-6 flex flex-wrap justify-end items-center gap-4;
+}
+
+.store__search {
+  @apply w-96 p-2 border border-gray-300 rounded;
+}
+
+.store__sort {
+  @apply p-2 border border-gray-300 rounded;
+}
+
+.store__grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.store__no-results {
+  @apply col-span-full text-center text-gray-500 py-8;
+}
+
+/* Header Component */
+.store-header {
+  @apply bg-[url(/img/tienda-banner.jpg)] bg-cover bg-center h-[80vh] relative;
+}
+
+.store-header__content {
+  @apply pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full;
+}
+
+.store-header__title {
+  @apply text-7xl mb-6 font-bold text-center;
+}

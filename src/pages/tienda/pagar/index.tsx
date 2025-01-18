@@ -25,18 +25,15 @@ const PagarPage = () => {
 
   if (products.length === 0) {
     return (
-      <div className=''>
+      <div className='pagar'>
         <Header />
-        <div className='flex items-center justify-center h-[calc(100vh-27rem)] mx-auto px-4 py-16'>
-          <div className='text-center'>
-            <i className='fas fa-shopping-cart text-6xl text-gray-400 mb-4' />
-            <h2 className='text-3xl font-bold text-gray-700 mb-4'>Tu carrito está vacío</h2>
-            <p className='text-gray-600 mb-8'>¿No sabes qué comprar? ¡Miles de productos te esperan!</p>
-            <Link
-              to='/tienda'
-              className='inline-flex items-center px-6 py-3 bg-accent-600 text-white font-semibold rounded-lg hover:bg-accent-700 transition-colors'
-            >
-              <i className='fas fa-store mr-2' />
+        <div className='pagar__empty'>
+          <div className='pagar__empty-content'>
+            <i className='fas fa-shopping-cart pagar__empty-icon' />
+            <h2 className='pagar__empty-title'>Tu carrito está vacío</h2>
+            <p className='pagar__empty-text'>¿No sabes qué comprar? ¡Miles de productos te esperan!</p>
+            <Link to='/tienda' className='pagar__empty-button'>
+              <i className='fas fa-store pagar__empty-button-icon' />
               Ir a la tienda
             </Link>
           </div>
@@ -46,43 +43,42 @@ const PagarPage = () => {
   }
 
   return (
-    <div>
+    <div className='pagar'>
       <Header />
-      <div className='container mx-auto px-4 py-8  min-h-[calc(100vh-27rem)]'>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-          {/* Lista de productos */}
-          <div className='lg:col-span-2'>
-            <div className='bg-white rounded-lg shadow-md p-6'>
-              <h2 className='text-xl font-bold mb-6 flex items-center'>
-                <i className='fas fa-shopping-cart mr-2' />
+      <div className='pagar__container'>
+        <div className='pagar__grid'>
+          <div className='pagar__products'>
+            <div className='pagar__products-card'>
+              <h2 className='pagar__products-title'>
+                <i className='fas fa-shopping-cart pagar__products-title-icon' />
                 Productos en tu carrito
               </h2>
-              <div className='space-y-4'>
+              <div className='pagar__products-list'>
                 {products.map((product) => (
-                  <div key={product.id} className='border-b pb-4'>
-                    <div className='flex items-center space-x-4'>
-                      <div className='w-24 h-24'>
+                  <div key={product.id} className='pagar__product'>
+                    <div className='pagar__product-content'>
+                      <div className='pagar__product-image'>
                         <img
                           src={product.details?.image?.foto_url || '/placeholder.png'}
                           alt={product.descripcion}
-                          className='w-full h-full object-contain rounded'
+                          className='pagar__product-img'
                         />
                       </div>
-                      <div className='flex-1'>
-                        <h3 className='font-semibold'>{product.descripcion}</h3>
-                        <p className='text-gray-600'>Marca: {product.marca?.descripcion}</p>
-                        <div className='flex items-center gap-2'>
-                          <p className='text-gray-600'>Cantidad: {product.quantity}</p>
-                          <button className='p-1 text-xs bg-gray-100 rounded' onClick={() => addProduct(product)}>
+                      <div className='pagar__product-info'>
+                        <h3 className='pagar__product-name'>{product.descripcion}</h3>
+                        <p className='pagar__product-brand'>Marca: {product.marca?.descripcion}</p>
+                        <div className='pagar__product-quantity'>
+                          <p>Cantidad: {product.quantity}</p>
+                          <button className='pagar__product-button' onClick={() => addProduct(product)}>
                             <i className='fas fa-plus'></i>
                           </button>
-                          <button className='p-1 text-xs bg-gray-100 rounded' onClick={() => removeProduct(product)}>
+                          <button className='pagar__product-button' onClick={() => removeProduct(product)}>
                             <i className='fas fa-minus'></i>
                           </button>
                         </div>
                       </div>
-                      <div className='text-right '>
-                        <p className='font-bold text-lg'>{formatMoney(product.precio * product.quantity)}</p>
+                      <div className='pagar__product-price'>
+                        <p>{formatMoney(product.precio * product.quantity)}</p>
                       </div>
                     </div>
                   </div>
@@ -91,46 +87,37 @@ const PagarPage = () => {
             </div>
           </div>
 
-          {/* Resumen de pago */}
-          <div className='lg:col-span-1'>
-            <div className='bg-white rounded-lg shadow-md p-6'>
-              <h2 className='text-xl font-bold mb-6 flex items-center'>
-                <i className='fas fa-credit-card mr-2' />
-                Resumen de pago
-              </h2>
-              <div className='space-y-4'>
-                <div className='flex justify-between'>
-                  <span className='text-gray-600'>Subtotal:</span>
-                  <span>{formatMoney(subtotal)}</span>
-                </div>
-                <div className='flex justify-between'>
-                  <span className='text-gray-600'>IVA (16%):</span>
-                  <span>{formatMoney(iva)}</span>
-                </div>
-                <div className='border-t pt-4'>
-                  <div className='flex justify-between font-bold text-lg'>
-                    <span>Total a pagar:</span>
-                    <span>{formatMoney(total)}</span>
-                  </div>
-                </div>
-
-                {isLoading ? (
-                  <button
-                    className='w-full bg-gray-400 text-white py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2'
-                    disabled
-                  >
-                    Procesando pago <Spinner />
-                  </button>
-                ) : (
-                  <button
-                    className='w-full bg-accent-600 text-white py-3 px-4 rounded-lg hover:bg-accent-700 transition-colors'
-                    onClick={handlePay}
-                    disabled={isLoading}
-                  >
-                    Proceder al pago
-                  </button>
-                )}
+          <div className='pagar__summary'></div>
+          <div className='pagar__summary-card'>
+            <h2 className='pagar__summary-title'>
+              <i className='fas fa-credit-card pagar__summary-title-icon' />
+              Resumen de pago
+            </h2>
+            <div className='pagar__summary-content'>
+              <div className='pagar__summary-row'>
+                <span>Subtotal:</span>
+                <span>{formatMoney(subtotal)}</span>
               </div>
+              <div className='pagar__summary-row'>
+                <span>IVA (16%):</span>
+                <span>{formatMoney(iva)}</span>
+              </div>
+              <div className='pagar__summary-total'>
+                <div className='pagar__summary-total-row'>
+                  <span>Total a pagar:</span>
+                  <span>{formatMoney(total)}</span>
+                </div>
+              </div>
+
+              {isLoading ? (
+                <button className='pagar__summary-button pagar__summary-button--disabled' disabled>
+                  Procesando pago <Spinner />
+                </button>
+              ) : (
+                <button className='pagar__summary-button' onClick={handlePay} disabled={isLoading}>
+                  Proceder al pago
+                </button>
+              )}
             </div>
           </div>
         </div>

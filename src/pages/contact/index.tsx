@@ -1,6 +1,5 @@
 import { SectionTitle } from '../../components'
 import Header from './header'
-import '../../assets/css/contact.css'
 
 const ContactPage = () => {
   return (

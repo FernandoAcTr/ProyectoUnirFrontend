@@ -1,6 +1,5 @@
 import { SectionTitle } from '../../components'
 import Header from './header'
-import '../assets/css/padecimientos.css'
 
 const PadecimietosPage = () => {
   return (

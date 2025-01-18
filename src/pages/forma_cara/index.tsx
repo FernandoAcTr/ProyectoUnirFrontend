@@ -1,6 +1,5 @@
 import { Separator } from '../../components'
 import Header from './header'
-import '../assets/css/forma_cara.css'
 
 const formas = [
   {

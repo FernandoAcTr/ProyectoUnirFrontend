@@ -1,0 +1,139 @@
+.pagar__empty {
+  @apply flex items-center justify-center h-[calc(100vh-27rem)] mx-auto px-4 py-16;
+}
+
+.pagar__empty-content {
+  @apply text-center;
+}
+
+.pagar__empty-icon {
+  @apply text-6xl text-gray-400 mb-4;
+}
+
+.pagar__empty-title {
+  @apply text-3xl font-bold text-gray-700 mb-4;
+}
+
+.pagar__empty-text {
+  @apply text-gray-600 mb-8;
+}
+
+.pagar__empty-button {
+  @apply inline-flex items-center px-6 py-3 bg-accent-600 text-white font-semibold rounded-lg hover:bg-accent-700 transition-colors;
+}
+
+.pagar__container {
+  @apply container mx-auto px-4 py-8 min-h-[calc(100vh-27rem)];
+}
+
+.pagar__grid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+}
+
+.pagar__products {
+  @apply lg:col-span-2;
+}
+
+.pagar__products-card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+.pagar__products-title {
+  @apply text-xl font-bold mb-6 flex items-center;
+}
+
+.pagar__products-title-icon {
+  @apply mr-2;
+}
+
+.pagar__products-list {
+  @apply space-y-4;
+}
+
+.pagar__product {
+  @apply border-b pb-4;
+}
+
+.pagar__product-content {
+  @apply flex items-center space-x-4;
+}
+
+.pagar__product-image {
+  @apply w-24 h-24;
+}
+
+.pagar__product-img {
+  @apply w-full h-full object-contain rounded;
+}
+
+.pagar__product-info {
+  @apply flex-1;
+}
+
+.pagar__product-name {
+  @apply font-semibold;
+}
+
+.pagar__product-brand {
+  @apply text-gray-600;
+}
+
+.pagar__product-quantity {
+  @apply flex items-center gap-2;
+}
+
+.pagar__product-button {
+  @apply p-1 text-xs bg-gray-100 rounded;
+}
+
+.pagar__product-price {
+  @apply text-right font-bold text-lg;
+}
+
+.pagar__summary {
+  @apply lg:col-span-1;
+}
+
+.pagar__summary-card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+.pagar__summary-title {
+  @apply text-xl font-bold mb-6 flex items-center;
+}
+
+.pagar__summary-title-icon {
+  @apply mr-2;
+}
+
+.pagar__summary-content {
+  @apply space-y-4;
+}
+
+.pagar__summary-row {
+  @apply flex justify-between text-gray-600;
+}
+
+.pagar__summary-total {
+  @apply border-t pt-4;
+}
+
+.pagar__summary-total-row {
+  @apply flex justify-between font-bold text-lg;
+}
+
+.pagar__summary-button {
+  @apply w-full bg-accent-600 text-white py-3 px-4 rounded-lg hover:bg-accent-700 transition-colors;
+}
+
+.pagar__summary-button--disabled {
+  @apply bg-gray-400 cursor-not-allowed;
+}
+
+.pagar__header {
+  @apply bg-primary-700 h-52 flex flex-col items-center justify-center;
+}
+
+.pagar__header-title {
+  @apply text-3xl mb-6 font-bold text-center text-white;
+}

@@ -49,12 +49,12 @@ const DevolverPage = () => {
   return (
     <div>
       <Header />
-      <div className='flex flex-col items-center justify-center min-h-[60vh] py-12 container'>
-        <p className='max-w-2xl text-sm mb-4'>
+      <div className='devolver-main'>
+        <p className='devolver-main__description'>
           Lamentamos que tu compra no haya sido lo que esperabas, pero no te preocupes, puedes devolverla en un plazo de
           30 días desde la fecha de compra. Para poder realizar la devolución, sigue estos pasos:
         </p>
-        <ol className='list-decimal list-inside text-sm max-w-2xl mx-auto'>
+        <ol className='devolver-main__steps'>
           <li>Ingresa el número de tu orden en el campo de arriba y haz clic en buscar.</li>
           <li>Selecciona los productos que deseas devolver.</li>
           <li>Selecciona el motivo de la devolución.</li>
@@ -62,25 +62,22 @@ const DevolverPage = () => {
           <li>Empaqueta los productos que deseas devolver y pégale la etiqueta de devolución.</li>
           <li>Una vez que recibamos tu paquete validaremos la devolución y recibirás un reembolso de tu compra.</li>
         </ol>
-        <p className='text-xs mt-6'>
-          Nota: Los productos deben estar en su empaque original y en perfecto estado para poder ser devueltos. <br />{' '}
+        <p className='devolver-main__note'>
+          Nota: Los productos deben estar en su empaque original y en perfecto estado para poder ser devueltos. <br />
           Si el producto se encuetra dañado o usado, la devolución será rechazada.
         </p>
-        <h2 className='text-2xl font-bold mb-6 text-center mt-6'>Ingresa el número de tu Orden</h2>
+        <h2 className='devolver-header__title'>Ingresa el número de tu Orden</h2>
 
-        <form onSubmit={handleSearch} className='w-full max-w-md'>
-          <div className='flex gap-2'>
+        <form onSubmit={handleSearch} className='devolver-search'>
+          <div className='devolver-search__form'>
             <input
               type='text'
               value={orderNumber}
               onChange={(e) => setOrderNumber(e.target.value)}
               placeholder='Ingrese el número de orden'
-              className='flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='devolver-search__input'
             />
-            <button
-              type='submit'
-              className='px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors'
-            >
+            <button type='submit' className='devolver-search__button'>
               Buscar
             </button>
           </div>
@@ -89,47 +86,40 @@ const DevolverPage = () => {
         {loading && <Spinner className='mt-5' />}
 
         {!loading && products.length > 0 && (
-          <div className='w-full max-w-2xl mt-8'>
-            <h3 className='text-lg font-semibold mb-4'>Productos de tu orden:</h3>
-            <div className='space-y-4'>
+          <div className='devolver-products'>
+            <h3 className='devolver-products__title'>Productos de tu orden:</h3>
+            <div className='devolver-products__list'>
               {products.map((product) => (
-                <div key={product.id} className='flex items-center gap-4 p-4 border rounded-lg'>
+                <div key={product.id} className='devolver-products__item'>
                   <input
                     type='checkbox'
                     checked={selectedProducts.includes(product.id)}
                     onChange={() => handleProductSelect(product.id)}
-                    className='h-5 w-5 text-blue-500'
+                    className='devolver-products__checkbox'
                   />
                   {product.details?.image && (
                     <img
                       src={product.details.image.foto_url}
                       alt={product.descripcion}
-                      className='w-20 h-20 object-contain rounded-md'
+                      className='devolver-products__image'
                     />
                   )}
-                  <div className='flex-1'>
-                    <p className='font-medium'>{product.descripcion}</p>
-                    <p className='text-sm text-gray-600'>{product.marca?.descripcion}</p>
+                  <div className='devolver-products__info'>
+                    <p className='devolver-products__name'>{product.descripcion}</p>
+                    <p className='devolver-products__brand'>{product.marca?.descripcion}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {errorMessage && (
-              <div className='bg-red-100 border border-red-200 text-red-800 p-4 rounded-lg mt-4'>{errorMessage}</div>
-            )}
+            {errorMessage && <div className='devolver-message'>{errorMessage}</div>}
 
-            {message && (
-              <div className='bg-green-100 border border-green-200 text-green-800 p-4 rounded-lg mt-4'>{message}</div>
-            )}
+            {message && <div className='devolver-message devolver-message--success'>{message}</div>}
 
-            <div className='flex justify-end'>
+            <div className='devolver-footer'>
               {isDevolutionLoading && <Spinner />}
               {!isDevolutionLoading && !message && (
-                <button
-                  className='mt-8 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors'
-                  onClick={handleDevolution}
-                >
+                <button className='devolver-footer__button' onClick={handleDevolution}>
                   Devolver
                 </button>
               )}

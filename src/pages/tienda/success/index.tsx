@@ -24,49 +24,49 @@ const SuccessPage = () => {
   return (
     <div>
       <Header />
-      <div className='flex justify-center items-center min-h-[calc(100vh-16rem)] p-4'>
-        <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl'>
-          <div className='text-center mb-8'>
-            <i className='fas fa-check-circle text-green-500 text-4xl mb-2'></i>
-            <h1 className='text-2xl font-bold text-gray-800'>¡Gracias por tu compra!</h1>
+      <div className='success-container'>
+        <div className='success-card'>
+          <div className='success-card__header'>
+            <i className='success-card__icon fas fa-check-circle'></i>
+            <h1 className='success-card__title'>¡Gracias por tu compra!</h1>
           </div>
 
-          <p className='text-gray-600 mb-2'>
-            Orden #<span className='font-semibold'>{orderId}</span>
+          <p className='success-order'>
+            Orden #<span className='success-order__number'>{orderId}</span>
           </p>
 
-          <ul className='divide-y divide-gray-200'>
+          <ul className='success-products'>
             {products.map((product) => (
-              <li key={product.id} className='py-4'>
-                <div className='flex justify-between items-center'>
+              <li key={product.id} className='success-product'>
+                <div className='success-product__container'>
                   <div>
-                    <p className='text-gray-800 font-semibold mb-2'>{product.marca?.descripcion}</p>
-                    <p className='text-gray-800 max-w-96 mb-1'>{product.descripcion}</p>
-                    <p className='text-gray-600 text-sm'>
+                    <p className='success-product__brand'>{product.marca?.descripcion}</p>
+                    <p className='success-product__description'>{product.descripcion}</p>
+                    <p className='success-product__details'>
                       Cantidad: {product.quantity} - Precio unitario: ${product.precio.toFixed(2)}
                     </p>
                   </div>
-                  <span className='text-gray-800'>${(product.precio * product.quantity).toFixed(2)}</span>
+                  <span className='success-product__price'>${(product.precio * product.quantity).toFixed(2)}</span>
                 </div>
               </li>
             ))}
           </ul>
 
-          <div className='mt-6 border-t pt-4'>
-            <div className='flex justify-between mb-2'>
-              <span className='text-gray-600'>Subtotal:</span>
-              <span className='text-gray-800'>${subtotal.toFixed(2)}</span>
+          <div className='success-summary'>
+            <div className='success-summary__row'>
+              <span className='success-summary__label'>Subtotal:</span>
+              <span className='success-summary__value'>${subtotal.toFixed(2)}</span>
             </div>
-            <div className='flex justify-between mb-2'>
-              <span className='text-gray-600'>IVA (16%):</span>
-              <span className='text-gray-800'>${iva.toFixed(2)}</span>
+            <div className='success-summary__row'>
+              <span className='success-summary__label'>IVA (16%):</span>
+              <span className='success-summary__value'>${iva.toFixed(2)}</span>
             </div>
-            <div className='flex justify-between mt-4 pt-4 border-t'>
-              <span className='text-lg font-bold'>Total pagado:</span>
-              <span className='text-lg font-bold'>${total.toFixed(2)}</span>
+            <div className='success-summary__total'>
+              <span className='success-summary__total-label'>Total pagado:</span>
+              <span className='success-summary__total-value'>${total.toFixed(2)}</span>
             </div>
             <button
-              className='mt-6 w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600'
+              className='success-button'
               onClick={() => {
                 clearCart()
                 navigate('/tienda')

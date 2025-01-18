@@ -43,7 +43,7 @@
 }
 
 .testimonial__quote {
-  @apply fa-solid fa-quote-left text-7xl text-accent-400;
+  @apply text-7xl text-accent-400;
 }
 
 .testimonial__text {

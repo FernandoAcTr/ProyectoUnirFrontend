@@ -75,12 +75,12 @@ const Tienda = () => {
   const sortedAndFilteredProducts = sortProducts(filteredProducts)
 
   return (
-    <div>
+    <div className="store">
       <Header />
-      <SectionTitle text='¡Encuentra lo que estas buscando!' className='my-12' />
-      <div className='px-5 md:px-10 flex flex-wrap md:flex-nowrap gap-4'>
-        <div className='w-full md:w-60 shrink-0'>
-          <p className='text-xl mb-6'>Filtrar por</p>
+      <SectionTitle text='¡Encuentra lo que estas buscando!' className='store__title' />
+      <div className='store__layout'>
+        <div className='store__sidebar'>
+          <p className='store__filter-title'>Filtrar por</p>
           <Accordion
             titles={['Categoría', 'Marca', 'Forma del Armazón', 'Tipo de Armazón']}
             tabs={[
@@ -142,24 +142,24 @@ const Tienda = () => {
               </ul>,
             ]}
           />
-          <Link to={'/tienda/devolver'} className='mt-6 text-sm text-primary-900 hover:underline block'>
+          <Link to={'/tienda/devolver'} className='store__return-link'>
             Devolver pedido
           </Link>
         </div>
 
-        <div className='w-full md:w-fit flex-grow '>
-          <div className='mb-6 flex flex-wrap justify-end items-center gap-4'>
+        <div className='store__content'>
+          <div className='store__controls'>
             <input
               type='text'
               placeholder='Buscar productos...'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className='w-96 p-2 border border-gray-300 rounded'
+              className='store__search'
             />
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className='p-2 border border-gray-300 rounded'
+              className='store__sort'
             >
               <option value='none'>Ordenar por</option>
               <option value='price-asc'>Precio (de bajo a alto)</option>
@@ -168,9 +168,9 @@ const Tienda = () => {
               <option value='brand-desc'>Marca (de Z a A)</option>
             </select>
           </div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+          <div className='store__grid'>
             {sortedAndFilteredProducts.length === 0 ? (
-              <div className='col-span-full text-center text-gray-500 py-8'>No hay resultados</div>
+              <div className='store__no-results'>No hay resultados</div>
             ) : (
               sortedAndFilteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
             )}

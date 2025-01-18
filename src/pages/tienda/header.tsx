@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <header className='bg-[url(/img/tienda-banner.jpg)] bg-cover bg-center h-[80vh] relative'>
-      <div className='pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full'>
-        <h1 className='text-7xl mb-6 font-bold text-center'>
+    <header className='store-header'>
+      <div className='store-header__content'>
+        <h1 className='store-header__title'>
           Conoce Nuestros <br /> Productos
         </h1>
       </div>

@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Separator } from '../../components'
 import Header from './header'
-import '../../assets/css/faqs.css'
 
 const faqs = [
   {

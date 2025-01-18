@@ -1,0 +1,95 @@
+.success-header {
+  @apply bg-primary-700 h-52 flex flex-col items-center justify-center;
+}
+
+.success-header__title {
+  @apply text-3xl mb-6 font-bold text-center text-white;
+}
+
+.success-container {
+  @apply flex justify-center items-center min-h-[calc(100vh-16rem)] p-4;
+}
+
+.success-card {
+  @apply bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl;
+}
+
+.success-card__header {
+  @apply text-center mb-8;
+}
+
+.success-card__icon {
+  @apply text-green-500 text-4xl mb-2;
+}
+
+.success-card__title {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.success-order {
+  @apply text-gray-600 mb-2;
+}
+
+.success-order__number {
+  @apply font-semibold;
+}
+
+.success-products {
+  @apply divide-y divide-gray-200;
+}
+
+.success-product {
+  @apply py-4;
+}
+
+.success-product__container {
+  @apply flex justify-between items-center;
+}
+
+.success-product__brand {
+  @apply text-gray-800 font-semibold mb-2;
+}
+
+.success-product__description {
+  @apply text-gray-800 max-w-96 mb-1;
+}
+
+.success-product__details {
+  @apply text-gray-600 text-sm;
+}
+
+.success-product__price {
+  @apply text-gray-800;
+}
+
+.success-summary {
+  @apply mt-6 border-t pt-4;
+}
+
+.success-summary__row {
+  @apply flex justify-between mb-2;
+}
+
+.success-summary__label {
+  @apply text-gray-600;
+}
+
+.success-summary__value {
+  @apply text-gray-800;
+}
+
+.success-summary__total {
+  @apply flex justify-between mt-4 pt-4 border-t;
+}
+
+.success-summary__total-label {
+  @apply text-lg font-bold;
+}
+
+.success-summary__total-value {
+  @apply text-lg font-bold;
+}
+
+.success-button {
+  @apply mt-6 w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600;
+}

@@ -1,5 +1,4 @@
 import ReactTypingEffect from 'react-typing-effect'
-import '../../assets/css/home.css'
 
 const Header = () => {
   return (

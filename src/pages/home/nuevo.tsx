@@ -1,6 +1,5 @@
 import { Link } from 'react-router'
 import { Separator } from '../../components'
-import '../../assets/css/home.css'
 
 const Nuevo = () => {
   return (

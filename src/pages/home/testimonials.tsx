@@ -1,5 +1,4 @@
 import { SectionTitle } from '../../components'
-import '../../assets/css/home.css'
 
 const Testimonials = () => {
   return (
@@ -7,9 +6,9 @@ const Testimonials = () => {
       <SectionTitle text='Testimoniales' />
       <div className='testimonials__grid'>
         <blockquote className='testimonial'>
-          <div className='testimonial__content'>
-            <i className='testimonial__quote'></i>
-            <p className='testimonial__text'>
+          <div className='fa-solid fa-quote-left testimonial__content'>
+            <i className='fa-solid fa-quote-left testimonial__quote'></i>
+            <p className='fa-solid fa-quote-left testimonial__text'>
               Sin duda alguna es de las majores ópticas en Cortazar, Celaya y la región
             </p>
           </div>

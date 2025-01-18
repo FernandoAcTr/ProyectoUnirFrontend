@@ -1,0 +1,91 @@
+.devolver-header {
+  @apply bg-primary-700 h-52 flex flex-col items-center justify-center;
+}
+
+.devolver-header__title {
+  @apply text-3xl mb-6 font-bold text-center text-white;
+}
+
+.devolver-main {
+  @apply flex flex-col items-center justify-center min-h-[60vh] py-12 container;
+}
+
+.devolver-main__description {
+  @apply max-w-2xl text-sm mb-4;
+}
+
+.devolver-main__steps {
+  @apply list-decimal list-inside text-sm max-w-2xl mx-auto;
+}
+
+.devolver-main__note {
+  @apply text-xs mt-6;
+}
+
+.devolver-search {
+  @apply w-full max-w-md;
+}
+
+.devolver-search__form {
+  @apply flex gap-2;
+}
+
+.devolver-search__input {
+  @apply flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.devolver-search__button {
+  @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+}
+
+.devolver-products {
+  @apply w-full max-w-2xl mt-8;
+}
+
+.devolver-products__title {
+  @apply text-lg font-semibold mb-4;
+}
+
+.devolver-products__list {
+  @apply space-y-4;
+}
+
+.devolver-products__item {
+  @apply flex items-center gap-4 p-4 border rounded-lg;
+}
+
+.devolver-products__checkbox {
+  @apply h-5 w-5 text-blue-500;
+}
+
+.devolver-products__image {
+  @apply w-20 h-20 object-contain rounded-md;
+}
+
+.devolver-products__info {
+  @apply flex-1;
+}
+
+.devolver-products__name {
+  @apply font-medium;
+}
+
+.devolver-products__brand {
+  @apply text-sm text-gray-600;
+}
+
+.devolver-message {
+  @apply bg-red-100 border border-red-200 text-red-800 p-4 rounded-lg mt-4;
+}
+
+.devolver-message--success {
+  @apply bg-green-100 border border-green-200 text-green-800;
+}
+
+.devolver-footer {
+  @apply flex justify-end;
+}
+
+.devolver-footer__button {
+  @apply mt-8 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+}

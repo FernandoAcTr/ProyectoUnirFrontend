@@ -1,0 +1,107 @@
+.header {
+  @apply relative h-[80vh];
+}
+
+.header__bg {
+  @apply bg-[url(/img/banner3.jpg)] bg-cover bg-center;
+}
+
+.header__overlay {
+  @apply absolute top-0 left-0 w-full h-full bg-black bg-opacity-60;
+}
+
+.header__content {
+  @apply pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full;
+}
+
+.header__welcome {
+  @apply text-center;
+}
+
+.header__title {
+  @apply text-3xl lg:text-7xl mb-6 font-bold text-center;
+}
+
+.header__cta {
+  @apply border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all;
+}
+
+.testimonials {
+  @apply mt-12 mb-20;
+}
+
+.testimonials__grid {
+  @apply container grid grid-cols-1 lg:grid-cols-3 mt-6 gap-10;
+}
+
+.testimonial {
+  @apply border p-5 shadow-lg rounded-lg;
+}
+
+.testimonial__content {
+  @apply flex items-start gap-6 mb-6;
+}
+
+.testimonial__quote {
+  @apply fa-solid fa-quote-left text-7xl text-accent-400;
+}
+
+.testimonial__text {
+  @apply tracking-widest leading-loose;
+}
+
+.testimonial__footer {
+  @apply flex items-center justify-center gap-6;
+}
+
+.testimonial__image {
+  @apply w-20 h-20 rounded-full;
+}
+
+.filosofia {
+  @apply mt-12;
+}
+
+.filosofia__grid {
+  @apply container grid grid-cols-1 lg:grid-cols-3 mt-6 gap-10;
+}
+
+.filosofia__card {
+  @apply border p-5 rounded-lg shadow-lg w-full mx-auto flex flex-col;
+}
+
+.filosofia__image {
+  @apply mx-auto w-[100px];
+}
+
+.filosofia__title {
+  @apply text-center font-semibold my-4 text-lg;
+}
+
+.nuevo {
+  @apply mt-12;
+}
+
+.nuevo__container {
+  @apply container flex flex-wrap lg:flex-nowrap items-center justify-center gap-10;
+}
+
+.nuevo__title {
+  @apply text-3xl md:text-5xl lg:text-7xl font-light leading-snug text-center lg:text-left;
+}
+
+.nuevo__description {
+  @apply mt-6 mb-6;
+}
+
+.nuevo__link {
+  @apply border p-2 px-5 rounded-full hover:bg-accent-400 hover:text-black transition-all;
+}
+
+.cta {
+  @apply mt-12 h-52 flex justify-center items-center;
+}
+
+.cta__link {
+  @apply border-2 border-black py-5 lg:py-8 px-10 lg:px-28 text-3xl font-light rounded-full hover:bg-accent-400 hover:text-black transition-all;
+}

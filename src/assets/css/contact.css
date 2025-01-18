@@ -1,0 +1,71 @@
+.contact {
+  @apply container mx-auto;
+}
+
+.contact__content {
+  @apply container flex flex-wrap justify-center gap-6;
+}
+
+.contact__image {
+  @apply w-full lg:w-2/5;
+}
+
+.contact__info {
+  @apply w-full lg:w-2/5 flex flex-wrap justify-between;
+}
+
+.contact__info-item {
+  @apply w-1/2 flex flex-col items-center justify-center;
+}
+
+.contact__info-icon {
+  @apply bg-white h-20 w-20 flex items-center justify-center rounded-2xl shadow-lg mb-5;
+}
+
+.contact__info-icon-image {
+  @apply text-4xl text-accent-500;
+}
+
+.contact__info-title {
+  @apply font-bold mb-2;
+}
+
+.contact__form-container {
+  @apply w-full max-w-2xl mx-auto mt-12 mb-12 p-10 bg-white rounded-lg shadow-lg;
+}
+
+.contact__form {
+  @apply space-y-4;
+}
+
+.contact__form-group {
+  @apply w-full;
+}
+
+.contact__form-label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.contact__form-input {
+  @apply w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.contact__form-button {
+  @apply w-full py-2 px-4 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.contact-header {
+  @apply bg-[url(/img/contacto-banner.jpg)] bg-cover bg-center h-[80vh] relative;
+}
+
+.contact-header__content {
+  @apply pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full;
+}
+
+.contact-header__title {
+  @apply text-3xl lg:text-7xl mb-6 font-bold;
+}
+
+.contact-header__button {
+  @apply border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all;
+}

@@ -1,14 +1,15 @@
 import { SectionTitle, Spacer } from '../../components'
+import '../../assets/css/home.css'
 
 const Filosofia = () => {
   return (
-    <section className='mt-12'>
+    <section className='filosofia'>
       <SectionTitle text='¡El mejor servicio, con la mejor calidad!' />
-      <div className='container grid grid-cols-1 lg:grid-cols-3 mt-6 gap-10'>
-        <div className='border p-5 rounded-lg shadow-lg w-full mx-auto flex flex-col'>
-          <img src='/img/mision.png' alt='Mision' width={100} className='mx-auto' />
+      <div className='filosofia__grid'>
+        <div className='filosofia__card'>
+          <img src='/img/mision.png' alt='Mision' className='filosofia__image' />
           <Spacer />
-          <h3 className='text-center font-semibold my-4 text-lg'>Misión</h3>
+          <h3 className='filosofia__title'>Misión</h3>
           <Spacer />
           <p>
             Mantenerse líder en el sector Óptico realizando diagnósticos precisos mediante Lic en Optometría, Nuestro
@@ -16,10 +17,10 @@ const Filosofia = () => {
           </p>
         </div>
 
-        <div className='border p-5 rounded-lg shadow-lg w-full mx-auto flex flex-col'>
-          <img src='/img/vision.png' alt='Vision' width={100} className='mx-auto' />
+        <div className='filosofia__card'>
+          <img src='/img/vision.png' alt='Vision' className='filosofia__image' />
           <Spacer />
-          <h3 className='text-center font-semibold my-4 text-lg'>Visión</h3>
+          <h3 className='filosofia__title'>Visión</h3>
           <Spacer />
           <p>
             Ser la empresa líder en el sector Óptico en la región, ofreciendo productos y servicios de calidad, con
@@ -27,10 +28,10 @@ const Filosofia = () => {
           </p>
         </div>
 
-        <div className='border p-5 rounded-lg shadow-lg w-full mx-auto flex flex-col'>
-          <img src='/img/valores.png' alt='Valores' width={100} className='mx-auto' />
+        <div className='filosofia__card'>
+          <img src='/img/valores.png' alt='Valores' className='filosofia__image' />
           <Spacer />
-          <h3 className='text-center font-semibold my-4 text-lg'>Valores</h3>
+          <h3 className='filosofia__title'>Valores</h3>
           <Spacer />
           <p>
             Honestidad, Responsabilidad, Respeto, Compromiso, Calidad, Servicio, Innovación, Trabajo en equipo y

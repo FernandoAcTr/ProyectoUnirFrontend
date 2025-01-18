@@ -1,0 +1,108 @@
+.face-shape {
+  @apply text-center;
+}
+
+.face-shape__title {
+  @apply text-3xl font-light mt-8 mb-2;
+}
+
+.face-shape__subtitle {
+  @apply text-center;
+}
+
+.face-shape__description {
+  @apply max-w-6xl mx-auto mt-12 px-5 mb-12;
+}
+
+.face-shape__steps {
+  @apply bg-primary-700 text-white py-8 text-center;
+}
+
+.face-shape__steps-title {
+  @apply text-2xl mb-3;
+}
+
+.face-shape__images {
+  @apply container flex flex-wrap justify-between py-12;
+}
+
+.face-shape__image {
+  @apply rounded-full;
+}
+
+.face-shape__instructions {
+  @apply px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.face-shape__instruction {
+  @apply text-center;
+}
+
+.face-shape__instruction-number {
+  @apply text-4xl font-sans;
+}
+
+.face-shape__instruction-title {
+  @apply my-3 text-xl;
+}
+
+.face-shape__types {
+  @apply container mb-20;
+}
+
+.face-shape__type-title {
+  @apply text-center text-2xl uppercase font-light mb-4;
+}
+
+.face-shape__type-description {
+  @apply max-w-6xl mx-auto text-center font-extralight text-sm leading-relaxed;
+}
+
+.face-shape__type-images {
+  @apply flex flex-wrap justify-evenly;
+}
+
+.face-shape__recommendations-title {
+  @apply text-xl text-center font-light my-12 uppercase;
+}
+
+.face-shape__recommendations {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.face-shape__recommendation {
+  @apply text-center;
+}
+
+.face-shape__recommendation-text {
+  @apply text-xs leading-loose;
+}
+
+.face-shape__recommendation-image {
+  @apply mx-auto;
+}
+
+.face-shape__button {
+  @apply border p-2 px-5 rounded-full bg-accent-400 hover:bg-accent-500 hover:text-black transition-all;
+}
+
+/* Header styles */
+.header {
+  @apply bg-cover bg-center h-[80vh] relative;
+}
+
+.header__overlay {
+  @apply absolute top-0 left-0 w-full h-full bg-black bg-opacity-60;
+}
+
+.header__content {
+  @apply pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full;
+}
+
+.header__title {
+  @apply text-3xl lg:text-7xl mb-6 font-bold text-center;
+}
+
+.header__button {
+  @apply border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all;
+}

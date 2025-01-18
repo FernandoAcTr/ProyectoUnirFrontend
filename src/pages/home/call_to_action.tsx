@@ -1,9 +1,10 @@
 import { Link } from 'react-router'
+import '../../assets/css/home.css'
 
 const CallToAction = () => {
   return (
-    <section className='mt-12 h-52 flex justify-center items-center'>
-      <Link to='#' className='border-2 border-black py-5 lg:py-8 px-10 lg:px-28 text-3xl font-light rounded-full hover:bg-accent-400 hover:text-black transition-all'>
+    <section className='cta'>
+      <Link to='/contacto' className='cta__link'>
         Contáctanos
       </Link>
     </section>

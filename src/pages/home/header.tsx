@@ -1,11 +1,12 @@
 import ReactTypingEffect from 'react-typing-effect'
+import '../../assets/css/home.css'
 
 const Header = () => {
   return (
-    <header className='bg-[url(/img/banner3.jpg)] bg-cover bg-center h-[80vh] relative'>
-      <div className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-60'></div>
-      <div className='pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full'>
-        <p>¡Hola! Bienvenido a</p>
+    <header className='header header__bg'>
+      <div className='header__overlay'></div>
+      <div className='header__content'>
+        <p className='header__welcome'>¡Hola! Bienvenido a</p>
         <ReactTypingEffect
           text={['Óptica Tovar', 'La Óptica que Cortazar prefiere.', 'Tu mejor opción.']}
           cursorClassName='text-3xl lg:text-7xl'
@@ -15,7 +16,7 @@ const Header = () => {
           eraseDelay={2500}
           displayTextRenderer={(text) => {
             return (
-              <h1 className='text-3xl lg:text-7xl mb-6 font-bold text-center'>
+              <h1 className='header__title'>
                 {text.split('').map((char, i) => {
                   const key = `${i}`
                   return <span key={key}>{char}</span>
@@ -24,9 +25,7 @@ const Header = () => {
             )
           }}
         />
-        <button className='border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all'>
-          Tienda
-        </button>
+        <button className='header__cta'>Tienda</button>
       </div>
     </header>
   )

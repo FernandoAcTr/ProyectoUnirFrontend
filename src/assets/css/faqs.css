@@ -1,0 +1,65 @@
+.faqs {
+  &__title {
+    @apply text-center text-3xl font-light mt-8 mb-2;
+  }
+
+  &__subtitle {
+    @apply text-center;
+  }
+
+  &__search-container {
+    @apply max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8;
+  }
+
+  &__search-input {
+    @apply w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  &__content {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid;
+  }
+
+  &__no-results {
+    @apply h-96 flex items-center justify-center;
+  }
+
+  &__category {
+    @apply mb-12;
+  }
+
+  &__category-title {
+    @apply text-2xl font-semibold text-gray-800 mb-6;
+  }
+
+  &__questions {
+    @apply space-y-4;
+  }
+
+  &__question-item {
+    @apply p-6 bg-white rounded-lg shadow hover:shadow-lg transition;
+  }
+
+  &__question-title {
+    @apply text-lg font-semibold text-gray-900;
+  }
+
+  &__question-answer {
+    @apply text-gray-700 mt-2;
+  }
+}
+
+.faqs-header {
+  @apply bg-[url(/img/faqs.jpg)] bg-cover bg-center h-[80vh] relative;
+
+  &__content {
+    @apply pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full;
+  }
+
+  &__title {
+    @apply text-3xl lg:text-7xl mb-6 font-bold;
+  }
+
+  &__button {
+    @apply border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all;
+  }
+}

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Separator } from '../../components'
 import Header from './header'
+import '../../assets/css/faqs.css'
 
 const faqs = [
   {
@@ -126,38 +127,38 @@ const Faqs = () => {
   }, [search])
 
   return (
-    <div>
+    <div className="faqs">
       <Header />
-      <h2 className='text-center text-3xl font-light mt-8 mb-2'>Preguntas Frecuentes</h2>
-      <h3 className='text-center'>Respondemos a las preguntas más comúnes, para que no te quedes con ninguna duda.</h3>
+      <h2 className="faqs__title">Preguntas Frecuentes</h2>
+      <h3 className="faqs__subtitle">Respondemos a las preguntas más comúnes, para que no te quedes con ninguna duda.</h3>
       <Separator />
 
-      <div className='max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8'>
+      <div className="faqs__search-container">
         <input
-          type='text'
-          placeholder='Buscar pregunta...'
-          className='w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+          type="text"
+          placeholder="Buscar pregunta..."
+          className="faqs__search-input"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
-      <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid'>
+      <div className="faqs__content">
         {filteredFaqs.length == 0 && (
-          <div className='h-96 flex items-center justify-center'>
+          <div className="faqs__no-results">
             Lo sentimos, no encontramos resultados para tu búsqueda.
           </div>
         )}
 
         {filteredFaqs.map((item) => (
-          <div className='mb-12' key={item.subject}>
-            <h2 className='text-2xl font-semibold text-gray-800 mb-6'>{item.subject}</h2>
-            <div className='space-y-4'>
+          <div className="faqs__category" key={item.subject}>
+            <h2 className="faqs__category-title">{item.subject}</h2>
+            <div className="faqs__questions">
               {item.questions.map((q) => (
-                <div className='p-6 bg-white rounded-lg shadow hover:shadow-lg transition' key={q.question}>
-                  <h3 className='text-lg font-semibold text-gray-900'>{q.question}</h3>
+                <div className="faqs__question-item" key={q.question}>
+                  <h3 className="faqs__question-title">{q.question}</h3>
                   {q.answer.map((aw) => (
-                    <p className='text-gray-700 mt-2' key={aw}>
+                    <p className="faqs__question-answer" key={aw}>
                       {aw}
                     </p>
                   ))}

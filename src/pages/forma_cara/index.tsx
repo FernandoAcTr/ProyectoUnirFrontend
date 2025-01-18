@@ -1,5 +1,6 @@
 import { Separator } from '../../components'
 import Header from './header'
+import '../assets/css/forma_cara.css'
 
 const formas = [
   {
@@ -55,57 +56,57 @@ const formas = [
 
 const FormaCara = () => {
   return (
-    <div>
+    <div className="face-shape">
       <Header />
-      <h2 className='text-center text-3xl font-light mt-8 mb-2'>
+      <h2 className='face-shape__title'>
         Cómo elegir el armazón de acuerdo a la forma de tu cara
       </h2>
-      <h3 className='text-center'>Identifica cómo comprar el lente ideal para tí.</h3>
+      <h3 className='face-shape__subtitle'>Identifica cómo comprar el lente ideal para tí.</h3>
       <Separator />
 
-      <p className='max-w-6xl mx-auto mt-12 px-5 mb-12'>
+      <p className='face-shape__description'>
         Hoy en día hay muchas opciones de lentes atractivos y a la moda. La primera regla para elegir armazones es
         seleccionar una opción que te encante y que te haga sentir seguro de ti mismo. Una manera de encontrar unos que
         acentúen mejor tus rasgos es escoger los que complementen la forma y el tono de tu piel, y que también
         representen tu estilo.
       </p>
 
-      <div className='bg-primary-700 text-white py-8 text-center'>
-        <h4 className='text-2xl mb-3'>Pasos para sacar la forma de tu cara</h4>
+      <div className='face-shape__steps'>
+        <h4 className='face-shape__steps-title'>Pasos para sacar la forma de tu cara</h4>
         <p>
           Necesitarás una cinta métrica flexible (no una regla rígida) <br /> que pueda acoplarse con comodidad a las
           curvas de tu cara.
         </p>
       </div>
 
-      <div className='container flex flex-wrap justify-between py-12'>
+      <div className='face-shape__images'>
         <img
           src='/img/rostro-medida-mujer.jpg'
           alt='Medida de Rostro para Mujer'
-          className='rounded-full'
+          className='face-shape__image'
           width={550}
         />
         <img
           src='/img/rostro-medida-hombre.jpg'
           alt='Medida de Rostro para Hombre'
-          className='rounded-full'
+          className='face-shape__image'
           width={550}
         />
       </div>
 
-      <div className='px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-        <div className='text-center'>
-          <p className='text-4xl font-sans'>1</p>
-          <p className='my-3 text-xl'>Mide la longitud (largo) de tu cara</p>
+      <div className='face-shape__instructions'>
+        <div className='face-shape__instruction'>
+          <p className='face-shape__instruction-number'>1</p>
+          <p className='face-shape__instruction-title'>Mide la longitud (largo) de tu cara</p>
           <p>
             Ubica el punto medio exacto de tu línea de cabello (la línea que se forma donde el cabello se une con la
             frente), empieza a medir desde ese punto pasando sobre tu nariz y hasta la punta de tu mentón.
           </p>
         </div>
 
-        <div className='text-center'>
-          <p className='text-4xl font-sans'>2</p>
-          <p className='my-3 text-xl'>Mide tu frente</p>
+        <div className='face-shape__instruction'>
+          <p className='face-shape__instruction-number'>2</p>
+          <p className='face-shape__instruction-title'>Mide tu frente</p>
           <p>
             Ubica la parte más ancha de tu frente. Por lo general, se encuentra casi en medio de las cejas. Coloca la
             cinta métrica en el punto de inicio en un lado de tu frente, en su punto más ancho y mide hasta el otro
@@ -113,18 +114,18 @@ const FormaCara = () => {
           </p>
         </div>
 
-        <div className='text-center'>
-          <p className='text-4xl font-sans'>3</p>
-          <p className='my-3 text-xl'>Mide de una mejilla a la otra</p>
+        <div className='face-shape__instruction'>
+          <p className='face-shape__instruction-number'>3</p>
+          <p className='face-shape__instruction-title'>Mide de una mejilla a la otra</p>
           <p>
             Mide a través de la parte superior de tus pómulos. Coloca el extremo de la cinta métrica justo después de la
             esquina exterior de tu ojo, este es tu punto de inicio y hasta llegar al otro punto del lado opuesto.
           </p>
         </div>
 
-        <div className='text-center'>
-          <p className='text-4xl font-sans'>4</p>
-          <p className='my-3 text-xl'>Mide la línea de tu mandíbula</p>
+        <div className='face-shape__instruction'>
+          <p className='face-shape__instruction-number'>4</p>
+          <p className='face-shape__instruction-title'>Mide la línea de tu mandíbula</p>
           <p>
             Ubica la parte inferior de las orejas e identifica el inicio de tu mandibula. Este será el punto de inicio
             para tu medición. Mide desde este punto hasta la punta de tu mentón y la medida que te de multiplicala por
@@ -133,8 +134,8 @@ const FormaCara = () => {
         </div>
       </div>
 
-      <div className='bg-primary-700 text-white py-8 text-center mb-12'>
-        <h4 className='text-2xl mb-3'>
+      <div className='face-shape__steps'>
+        <h4 className='face-shape__steps-title'>
           Te mostraremos las diferentes formas de cara y el armazón ideal para cada una.
         </h4>
         <p>
@@ -145,29 +146,27 @@ const FormaCara = () => {
       </div>
 
       {formas.map((forma) => (
-        <div className='container mb-20'>
-          <h4 className='text-center text-2xl uppercase font-light mb-4'>{forma.title}</h4>
-          <p className='max-w-6xl mx-auto text-center font-extralight text-sm leading-relaxed'>{forma.description}</p>
-          <div className='flex flex-wrap justify-evenly'>
-            <img src={forma.imgM} alt='Imagen Cara Cuadrada Mujer' className='rounded-full' width={300} />
-            <img src={forma.imgH} alt='Imagen Cara Cuadrada Hombre' className='rounded-full' width={300} />
+        <div className='face-shape__types'>
+          <h4 className='face-shape__type-title'>{forma.title}</h4>
+          <p className='face-shape__type-description'>{forma.description}</p>
+          <div className='face-shape__type-images'>
+            <img src={forma.imgM} alt='Imagen Cara Mujer' className='face-shape__image' width={300} />
+            <img src={forma.imgH} alt='Imagen Cara Hombre' className='face-shape__image' width={300} />
           </div>
-          <p className='text-xl text-center font-light my-12 uppercase'>Te mostramos algunas recomendaciones</p>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+          <p className='face-shape__recommendations-title'>Te mostramos algunas recomendaciones</p>
+          <div className='face-shape__recommendations'>
             {Array.from({ length: 4 }).map(() => (
-              <div className='text-center'>
-                <p className='text-xs leading-loose'>
+              <div className='face-shape__recommendation'>
+                <p className='face-shape__recommendation-text'>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ab vitae
                 </p>
                 <img
                   src='https://www.blockbluelight.co.uk/cdn/shop/products/blockbluelight-blue-light-filter-computer-glasses-clear-lens-screentime-billie-computer-glasses-black-29752330322052.jpg?v=1651274298'
                   alt='Recomendación'
                   width={255}
-                  className='mx-auto'
+                  className='face-shape__recommendation-image'
                 />
-                <button className='border p-2 px-5 rounded-full bg-accent-400 hover:bg-accent-500 hover:text-black transition-all'>
-                  Comprar
-                </button>
+                <button className='face-shape__button'>Comprar</button>
               </div>
             ))}
           </div>

@@ -1,0 +1,64 @@
+.padecimientos {
+  @apply w-full;
+}
+
+.padecimientos__intro {
+  @apply container flex flex-wrap items-start justify-center gap-6 mb-12;
+}
+
+.padecimientos__intro-content {
+  @apply w-full lg:w-1/2;
+}
+
+.padecimientos__intro-text {
+  @apply mb-3;
+}
+
+.padecimientos__intro-list {
+  @apply list-disc list-inside pl-10;
+}
+
+.padecimientos__conditions {
+  @apply px-5;
+}
+
+.padecimientos__condition {
+  @apply mb-12;
+}
+
+.padecimientos__condition-title {
+  @apply p-5 bg-primary-700 text-white text-xl uppercase mb-4;
+}
+
+.padecimientos__condition-content {
+  @apply flex flex-wrap justify-between items-center;
+}
+
+.padecimientos__condition-image {
+  @apply w-full lg:w-4/12;
+}
+
+.padecimientos__condition-text {
+  @apply w-full lg:w-7/12;
+}
+
+.padecimientos__condition-paragraph {
+  @apply mb-4;
+}
+
+/* Header styles */
+.padecimientos-header {
+  @apply bg-[url(/img/banner.jpg)] bg-cover bg-center h-[80vh] relative;
+}
+
+.padecimientos-header__content {
+  @apply pt-16 relative flex flex-col items-center justify-center gap-4 z-10 text-white h-full;
+}
+
+.padecimientos-header__title {
+  @apply text-3xl lg:text-7xl mb-6 font-bold;
+}
+
+.padecimientos-header__button {
+  @apply border border-white p-2 px-5 rounded-full hover:bg-white hover:text-black transition-all;
+}

@@ -30,7 +30,15 @@ const PadecimietosPage = () => {
             <h3 className='padecimientos__condition-title'>{condition}</h3>
             <div className='padecimientos__condition-content'>
               <img
-                src={`/img/${condition.toLowerCase()}.jpg`}
+                src={
+                  condition == 'Miopía'
+                    ? '/img/miopia.jpg'
+                    : condition == 'Hipermiopía (Hipermetropía)'
+                    ? '/img/hipermetropia.jpg'
+                    : condition == 'Astigmatismo'
+                    ? '/img/astigmatismo.jpg'
+                    : '/img/vista-2020.jpg'
+                }
                 alt={condition}
                 className='padecimientos__condition-image'
               />

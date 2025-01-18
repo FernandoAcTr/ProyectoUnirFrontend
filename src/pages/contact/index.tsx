@@ -3,7 +3,7 @@ import Header from './header'
 
 const ContactPage = () => {
   return (
-    <div className="contact">
+    <div>
       <Header />
       <SectionTitle text='Contacto' className='mt-8 mb-12' />
 

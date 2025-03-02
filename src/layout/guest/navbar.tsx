@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { useScrollDown } from '../../hooks'
 import { useCartContextContext } from '../../context/cart.context'
+import { useAuthContext } from '../../context/auth.context'
 
 export type NavbarProps = {
   //
@@ -12,6 +13,7 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
   const { toggleCart, totalProducts } = useCartContextContext()
+  const { logout, isLogged } = useAuthContext()
 
   useScrollDown((isScrolled) => setIsOver(isScrolled))
 
@@ -107,6 +109,15 @@ export const Navbar = () => {
             <span>({totalProducts})</span>
           </button>
         </li>
+
+        {isLogged && (
+          <button
+            onClick={logout}
+            className={`w-full md:w-auto text-center ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}
+          >
+            <i className='fa-solid fa-arrow-right-from-bracket'></i>
+          </button>
+        )}
       </ul>
     </nav>
   )

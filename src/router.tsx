@@ -57,11 +57,11 @@ const routes = createBrowserRouter([
         path: '/tienda/devolver',
         element: <DevolverPage />,
       },
-      {
-        path: '/login',
-        element: <LoginPage />,
-      }
     ],
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
   },
 ])
 

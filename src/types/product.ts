@@ -1,35 +1,27 @@
-import { Category } from './category'
-import { Forma } from './forma'
-import { Image } from './image'
-import { Marca } from './marca'
-import { TipoArmazon } from './tipo_armazon'
-
-export type Product = {
-  id: string
+export interface Product {
+  id: number
   precio: number
   descripcion: string
-  tipo_armazon_id: string
-  marca_id: string
-  categoria_id: string
-  forma_id: string
-  created_at: string
-  updated_at: string
-  details?: ProductDetail
-  tipo?: TipoArmazon
-  marca?: Marca
-  categoria?: Category
-  forma?: Forma
+  tipoArmazon: string
+  marca: string
+  categoria: string
+  forma: string
+  createdAt: Date
+  updatedAt: Date
+  details: Details
 }
 
-export type ProductDetail = {
-  id: string
-  producto_id: string
+export interface Details {
   color: string
   talla: string
-  longitud_varilla: string
-  ancho_puente: string
-  ancho_total: string
-  image_id: string
+  longitudVarilla: string
+  anchoPuente: string
+  anchoTotal: string
   sku: string
   image?: Image
+}
+
+export interface Image {
+  fotoUrl: string
+  fotoPublicId: string
 }

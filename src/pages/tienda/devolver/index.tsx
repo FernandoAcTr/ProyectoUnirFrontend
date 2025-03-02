@@ -96,20 +96,20 @@ const DevolverPage = () => {
                 <div key={product.id} className='flex items-center gap-4 p-4 border rounded-lg'>
                   <input
                     type='checkbox'
-                    checked={selectedProducts.includes(product.id)}
-                    onChange={() => handleProductSelect(product.id)}
+                    checked={selectedProducts.includes(product.id.toString())}
+                    onChange={() => handleProductSelect(product.id.toString())}
                     className='h-5 w-5 text-blue-500'
                   />
                   {product.details?.image && (
                     <img
-                      src={product.details.image.foto_url}
+                      src={product.details.image.fotoUrl}
                       alt={product.descripcion}
                       className='w-20 h-20 object-contain rounded-md'
                     />
                   )}
                   <div className='flex-1'>
                     <p className='font-medium'>{product.descripcion}</p>
-                    <p className='text-sm text-gray-600'>{product.marca?.descripcion}</p>
+                    <p className='text-sm text-gray-600'>{product.marca}</p>
                   </div>
                 </div>
               ))}

@@ -71,14 +71,14 @@ const PagarPage = () => {
                     <div className='flex items-center space-x-4'>
                       <div className='w-24 h-24'>
                         <img
-                          src={product.details?.image?.foto_url || '/placeholder.png'}
+                          src={product.details?.image?.fotoUrl || '/placeholder.png'}
                           alt={product.descripcion}
                           className='w-full h-full object-contain rounded'
                         />
                       </div>
                       <div className='flex-1'>
                         <h3 className='font-semibold'>{product.descripcion}</h3>
-                        <p className='text-gray-600'>Marca: {product.marca?.descripcion}</p>
+                        <p className='text-gray-600'>Marca: {product.marca}</p>
                         <div className='flex items-center gap-2'>
                           <p className='text-gray-600'>Cantidad: {product.quantity}</p>
                           <button className='p-1 text-xs bg-gray-100 rounded' onClick={() => addProduct(product)}>

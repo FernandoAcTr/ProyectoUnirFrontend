@@ -2,10 +2,10 @@ import { Category, Forma, Marca, Product, TipoArmazon } from '../types'
 import { httpClient } from '../utils/http_client'
 
 type ProductFilters = {
-  categoriaId?: string
-  marcaId?: string
-  formaId?: string
-  tipoArmazonId?: string
+  categoria?: string
+  marca?: string
+  forma?: string
+  tipoArmazon?: string
 }
 
 export class ProductService {
@@ -34,6 +34,13 @@ export class ProductService {
       params: {
         ...filters,
       },
+    })
+    return data
+  }
+
+  async searchProducts(query: string): Promise<Product[]> {
+    const { data } = await httpClient.get<Product[]>('/products/search', {
+      params: { query },
     })
     return data
   }

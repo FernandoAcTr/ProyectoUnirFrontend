@@ -21,14 +21,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     <div className='border rounded-lg shadow-sm overflow-hidden flex flex-col'>
       <div className='relative'>
         <img
-          src={product.details?.image?.foto_url || '/placeholder.png'}
+          src={product.details?.image?.fotoUrl || '/placeholder.png'}
           alt={product.descripcion}
           className='w-full h-full object-cover'
         />
       </div>
       <Spacer />
       <div className='p-4 flex flex-col'>
-        <h3 className='font-semibold text-lg mb-2'>{product.marca?.descripcion}</h3>
+        <h3 className='font-semibold text-lg mb-2'>{product.marca}</h3>
         <p className='text-gray-600 text-sm mb-3 line-clamp-2'>{product.descripcion}</p>
         <p className='text-xl font-bold mb-4'>{formatMoney(product.precio)}</p>
         <Spacer />

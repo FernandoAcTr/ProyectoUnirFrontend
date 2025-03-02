@@ -33,11 +33,6 @@ const SuccessPage = () => {
       <Header />
       <div className='flex justify-center items-center min-h-[calc(100vh-16rem)] p-4'>
         <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl'>
-          <div className='text-center mb-8'>
-            <i className='fas fa-check-circle text-green-500 text-4xl mb-2'></i>
-            <h1 className='text-2xl font-bold text-gray-800'>¡Gracias por tu compra!</h1>
-          </div>
-
           <p className='text-gray-600 mb-2'>
             Orden #<span className='font-semibold'>{orderId}</span>
           </p>
@@ -75,7 +70,7 @@ const SuccessPage = () => {
             <button
               className='mt-6 w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600'
               onClick={() => {
-                navigate('/tienda')
+                navigate(-1)
               }}
             >
               Volver

@@ -2,11 +2,13 @@ import { useMemo } from 'react'
 import { useCartContextContext } from '../../context/cart.context'
 import { formatMoney } from '../../utils/text'
 import { Link } from 'react-router'
+import { useAuthContext } from '../../context/auth.context'
 
 export type CartProps = {}
 
 export const Cart = () => {
   const { isOpened, products, toggleCart, removeProduct, totalProducts } = useCartContextContext()
+  const { isLogged } = useAuthContext()
 
   const total = useMemo(() => products.reduce((acc, product) => acc + product.precio * product.quantity, 0), [products])
 
@@ -67,6 +69,12 @@ export const Cart = () => {
             >
               Pagar
             </Link>
+          )}
+
+          {!isLogged && (
+            <p className='text-xs mt-3'>
+              Debes <Link to='/login' className='text-blue-600'>iniciar sesión</Link> para continuar con tu compra
+            </p>
           )}
         </div>
       </div>

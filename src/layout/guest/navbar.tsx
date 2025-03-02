@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { useScrollDown } from '../../hooks'
 import { useCartContextContext } from '../../context/cart.context'
+import { useAuthContext } from '../../context/auth.context'
 
 export type NavbarProps = {
   //
@@ -12,6 +13,7 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
   const { toggleCart, totalProducts } = useCartContextContext()
+  const { logout, isLogged } = useAuthContext()
 
   useScrollDown((isScrolled) => setIsOver(isScrolled))
 
@@ -100,6 +102,20 @@ export const Navbar = () => {
             </ul>
           </div>
         </li>
+        {!isLogged && (
+          <li className={`w-full md:w-auto text-center opacity-40`}>
+            <Link to='/login' className={`block py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
+              Iniciar Sesión
+            </Link>
+          </li>
+        )}
+        {isLogged && (
+          <li className={`w-full md:w-auto text-center opacity-40`}>
+            <Link to='/tienda/ordenes' className={`block py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
+              Mis Compras
+            </Link>
+          </li>
+        )}
 
         <li className={`w-full md:w-auto text-center ${totalProducts > 0 ? 'opacity-100' : 'opacity-40'}`}>
           <button onClick={toggleCart} className={`py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
@@ -107,6 +123,15 @@ export const Navbar = () => {
             <span>({totalProducts})</span>
           </button>
         </li>
+
+        {isLogged && (
+          <button
+            onClick={logout}
+            className={`w-full md:w-auto text-center ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}
+          >
+            <i className='fa-solid fa-arrow-right-from-bracket'></i>
+          </button>
+        )}
       </ul>
     </nav>
   )

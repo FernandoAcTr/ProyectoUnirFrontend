@@ -24,8 +24,18 @@ const Tienda = () => {
     productService.getMarcas().then(setBrands)
     productService.getFormas().then(setFrameShapes)
     productService.getTipos().then(setFrameTypes)
-    productService.getProducts().then(setProducts)
   }, [])
+
+  useEffect(() => {
+    productService
+      .getProducts({
+        categoriaId: selectedCategory ?? undefined,
+        marcaId: selectedBrand ?? undefined,
+        formaId: selectedShape ?? undefined,
+        tipoArmazonId: selectedType ?? undefined,
+      })
+      .then(setProducts)
+  }, [selectedCategory, selectedBrand, selectedShape, selectedType])
 
   const sortProducts = (products: Product[]) => {
     switch (sortBy) {

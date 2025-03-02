@@ -7,7 +7,6 @@ import { ProductCard } from './ProductCard'
 import { Link } from 'react-router'
 
 const Tienda = () => {
-  const [searchTerm, setSearchTerm] = useState('')
   const [sortBy, setSortBy] = useState('none')
   const [categories, setCategories] = useState<Category[]>([])
   const [brands, setBrands] = useState<Category[]>([])
@@ -18,6 +17,7 @@ const Tienda = () => {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null)
   const [selectedShape, setSelectedShape] = useState<string | null>(null)
   const [selectedType, setSelectedType] = useState<string | null>(null)
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     productService.getCategories().then(setCategories)
@@ -27,6 +27,11 @@ const Tienda = () => {
   }, [])
 
   useEffect(() => {
+    if (query) {
+      productService.searchProducts(query).then(setProducts)
+      return
+    }
+
     productService
       .getProducts({
         categoria: selectedCategory ?? undefined,
@@ -35,7 +40,7 @@ const Tienda = () => {
         tipoArmazon: selectedType ?? undefined,
       })
       .then(setProducts)
-  }, [selectedCategory, selectedBrand, selectedShape, selectedType])
+  }, [selectedCategory, selectedBrand, selectedShape, selectedType, query])
 
   const sortProducts = (products: Product[]) => {
     switch (sortBy) {
@@ -51,19 +56,6 @@ const Tienda = () => {
         return products
     }
   }
-
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch =
-      product.marca.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
-
-    const matchesCategory = selectedCategory ? product.categoria === selectedCategory : true
-    const matchesBrand = selectedBrand ? product.marca === selectedBrand : true
-    const matchesShape = selectedShape ? product.forma === selectedShape : true
-    const matchesType = selectedType ? product.tipoArmazon === selectedType : true
-
-    return matchesSearch && matchesCategory && matchesBrand && matchesShape && matchesType
-  })
 
   const handleFilter = (type: 'category' | 'brand' | 'shape' | 'type', value: string) => {
     switch (type) {
@@ -82,7 +74,7 @@ const Tienda = () => {
     }
   }
 
-  const sortedAndFilteredProducts = sortProducts(filteredProducts)
+  const sortedAndFilteredProducts = sortProducts(products)
 
   return (
     <div>
@@ -162,8 +154,8 @@ const Tienda = () => {
             <input
               type='text'
               placeholder='Buscar productos...'
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               className='w-96 p-2 border border-gray-300 rounded'
             />
             <select

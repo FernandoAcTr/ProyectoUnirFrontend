@@ -38,6 +38,13 @@ export class ProductService {
     return data
   }
 
+  async searchProducts(query: string): Promise<Product[]> {
+    const { data } = await httpClient.get<Product[]>('/products/search', {
+      params: { query },
+    })
+    return data
+  }
+
   async getProductById(id: string): Promise<Product | undefined> {
     const { data } = await httpClient.get<Product>(`/products/${id}`)
     return data

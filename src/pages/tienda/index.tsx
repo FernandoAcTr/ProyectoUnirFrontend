@@ -29,10 +29,10 @@ const Tienda = () => {
   useEffect(() => {
     productService
       .getProducts({
-        categoriaId: selectedCategory ?? undefined,
-        marcaId: selectedBrand ?? undefined,
-        formaId: selectedShape ?? undefined,
-        tipoArmazonId: selectedType ?? undefined,
+        categoria: selectedCategory ?? undefined,
+        marca: selectedBrand ?? undefined,
+        forma: selectedShape ?? undefined,
+        tipoArmazon: selectedType ?? undefined,
       })
       .then(setProducts)
   }, [selectedCategory, selectedBrand, selectedShape, selectedType])
@@ -44,9 +44,9 @@ const Tienda = () => {
       case 'price-desc':
         return [...products].sort((a, b) => b.precio - a.precio)
       case 'brand-asc':
-        return [...products].sort((a, b) => (a.marca?.descripcion || '').localeCompare(b.marca?.descripcion || ''))
+        return [...products].sort((a, b) => (a.marca || '').localeCompare(b.marca || ''))
       case 'brand-desc':
-        return [...products].sort((a, b) => (b.marca?.descripcion || '').localeCompare(a.marca?.descripcion || ''))
+        return [...products].sort((a, b) => (b.marca || '').localeCompare(a.marca || ''))
       default:
         return products
     }
@@ -54,30 +54,30 @@ const Tienda = () => {
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch =
-      product.marca?.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.marca.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
 
-    const matchesCategory = selectedCategory ? product.categoria?.id === selectedCategory : true
-    const matchesBrand = selectedBrand ? product.marca?.id === selectedBrand : true
-    const matchesShape = selectedShape ? product.forma?.id === selectedShape : true
-    const matchesType = selectedType ? product.tipo?.id === selectedType : true
+    const matchesCategory = selectedCategory ? product.categoria === selectedCategory : true
+    const matchesBrand = selectedBrand ? product.marca === selectedBrand : true
+    const matchesShape = selectedShape ? product.forma === selectedShape : true
+    const matchesType = selectedType ? product.tipoArmazon === selectedType : true
 
     return matchesSearch && matchesCategory && matchesBrand && matchesShape && matchesType
   })
 
-  const handleFilter = (type: 'category' | 'brand' | 'shape' | 'type', id: string) => {
+  const handleFilter = (type: 'category' | 'brand' | 'shape' | 'type', value: string) => {
     switch (type) {
       case 'category':
-        setSelectedCategory(selectedCategory === id ? null : id)
+        setSelectedCategory(selectedCategory === value ? null : value)
         break
       case 'brand':
-        setSelectedBrand(selectedBrand === id ? null : id)
+        setSelectedBrand(selectedBrand === value ? null : value)
         break
       case 'shape':
-        setSelectedShape(selectedShape === id ? null : id)
+        setSelectedShape(selectedShape === value ? null : value)
         break
       case 'type':
-        setSelectedType(selectedType === id ? null : id)
+        setSelectedType(selectedType === value ? null : value)
         break
     }
   }
@@ -98,11 +98,11 @@ const Tienda = () => {
                 {categories.map((category) => (
                   <li
                     className={`py-2 cursor-pointer hover:text-blue-600 ${
-                      selectedCategory === category.id ? 'text-blue-600 font-semibold' : ''
+                      selectedCategory === category.descripcion ? 'text-blue-600 font-semibold' : ''
                     }`}
                     key={category.id}
                     role='button'
-                    onClick={() => handleFilter('category', category.id)}
+                    onClick={() => handleFilter('category', category.descripcion)}
                   >
                     {category.descripcion}
                   </li>
@@ -112,11 +112,11 @@ const Tienda = () => {
                 {brands.map((brand) => (
                   <li
                     className={`py-2 cursor-pointer hover:text-blue-600 ${
-                      selectedBrand === brand.id ? 'text-blue-600 font-semibold' : ''
+                      selectedBrand === brand.descripcion ? 'text-blue-600 font-semibold' : ''
                     }`}
                     key={brand.id}
                     role='button'
-                    onClick={() => handleFilter('brand', brand.id)}
+                    onClick={() => handleFilter('brand', brand.descripcion)}
                   >
                     {brand.descripcion}
                   </li>
@@ -126,11 +126,11 @@ const Tienda = () => {
                 {frameShapes.map((shape) => (
                   <li
                     className={`py-2 cursor-pointer hover:text-blue-600 ${
-                      selectedShape === shape.id ? 'text-blue-600 font-semibold' : ''
+                      selectedShape === shape.descripcion ? 'text-blue-600 font-semibold' : ''
                     }`}
                     key={shape.id}
                     role='button'
-                    onClick={() => handleFilter('shape', shape.id)}
+                    onClick={() => handleFilter('shape', shape.descripcion)}
                   >
                     {shape.descripcion}
                   </li>
@@ -140,11 +140,11 @@ const Tienda = () => {
                 {frameTypes.map((type) => (
                   <li
                     className={`py-2 cursor-pointer hover:text-blue-600 ${
-                      selectedType === type.id ? 'text-blue-600 font-semibold' : ''
+                      selectedType === type.descripcion ? 'text-blue-600 font-semibold' : ''
                     }`}
                     key={type.id}
                     role='button'
-                    onClick={() => handleFilter('type', type.id)}
+                    onClick={() => handleFilter('type', type.descripcion)}
                   >
                     {type.descripcion}
                   </li>

@@ -42,7 +42,7 @@ const SuccessPage = () => {
               <li key={item.id} className='py-4'>
                 <div className='flex justify-between items-center'>
                   <div>
-                    <p className='text-gray-800 font-semibold mb-2'>{item.product?.marca?.descripcion}</p>
+                    <p className='text-gray-800 font-semibold mb-2'>{item.product?.marca}</p>
                     <p className='text-gray-800 max-w-96 mb-1'>{item.product?.descripcion}</p>
                     <p className='text-gray-600 text-sm'>
                       Cantidad: {item.quantity} - Precio unitario: ${item.product?.precio.toFixed(2)}

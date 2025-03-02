@@ -41,7 +41,7 @@ const DetalleProducto = () => {
           {/* Imagen del producto */}
           <div className='w-full'>
             <img
-              src={product.details.image?.foto_url || '/placeholder.png'}
+              src={product.details.image?.fotoUrl || '/placeholder.png'}
               alt={product.descripcion}
               className='w-full h-auto object-cover rounded-lg shadow-lg'
             />
@@ -49,7 +49,7 @@ const DetalleProducto = () => {
 
           {/* Información principal */}
           <div className='space-y-4'>
-            <h1 className='text-3xl font-bold text-gray-800'>{product.marca?.descripcion}</h1>
+            <h1 className='text-3xl font-bold text-gray-800'>{product.marca}</h1>
             <p className='text-sm text-gray-600'>SKU: {product.details.sku}</p>
             <p className='text-gray-700'>{product.descripcion}</p>
             <p className='text-2xl font-bold text-accent-600'>${product.precio.toFixed(2)}</p>
@@ -84,19 +84,19 @@ const DetalleProducto = () => {
                   </tr>
                   <tr>
                     <td className='py-2 font-semibold'>Longitud de Varilla</td>
-                    <td className='py-2'>{product.details.longitud_varilla}</td>
+                    <td className='py-2'>{product.details.longitudVarilla}</td>
                   </tr>
                   <tr>
                     <td className='py-2 font-semibold'>Ancho de Puente</td>
-                    <td className='py-2'>{product.details.ancho_puente}</td>
+                    <td className='py-2'>{product.details.anchoPuente}</td>
                   </tr>
                   <tr>
                     <td className='py-2 font-semibold'>Ancho Total</td>
-                    <td className='py-2'>{product.details.ancho_total}</td>
+                    <td className='py-2'>{product.details.anchoTotal}</td>
                   </tr>
                   <tr>
                     <td className='py-2 font-semibold'>Tipo de Armazón</td>
-                    <td className='py-2'>{product.tipo?.descripcion}</td>
+                    <td className='py-2'>{product.tipoArmazon}</td>
                   </tr>
                 </tbody>
               </table>

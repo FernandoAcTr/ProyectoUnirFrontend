@@ -31,13 +31,13 @@ export const Cart = () => {
             <div key={product.id} className='flex items-center gap-3 mb-4 p-2 border-b'>
               <div className='w-16 h-16'>
                 <img
-                  src={product.details?.image?.foto_url}
+                  src={product.details?.image?.fotoUrl}
                   alt={product.descripcion}
                   className='w-full h-full object-contain rounded'
                 />
               </div>
               <div className='flex-1'>
-                <h3 className='text-sm font-medium'>{product.marca?.descripcion}</h3>
+                <h3 className='text-sm font-medium'>{product.marca}</h3>
                 <p className='text-xs text-gray-500'>{product.descripcion}</p>
                 <div className='flex items-center justify-between mt-2'>
                   <span className='text-sm font-bold'>${product.precio}</span>

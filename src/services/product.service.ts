@@ -2,10 +2,10 @@ import { Category, Forma, Marca, Product, TipoArmazon } from '../types'
 import { httpClient } from '../utils/http_client'
 
 type ProductFilters = {
-  categoriaId?: string
-  marcaId?: string
-  formaId?: string
-  tipoArmazonId?: string
+  categoria?: string
+  marca?: string
+  forma?: string
+  tipoArmazon?: string
 }
 
 export class ProductService {

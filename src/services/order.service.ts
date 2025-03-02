@@ -19,6 +19,11 @@ export class OrderService {
       return null
     }
   }
+
+  async getOrders(): Promise<Order[]> {
+    const { data } = await httpClient.get('/orders')
+    return data
+  }
 }
 
 export const orderService = new OrderService()

@@ -102,6 +102,20 @@ export const Navbar = () => {
             </ul>
           </div>
         </li>
+        {!isLogged && (
+          <li className={`w-full md:w-auto text-center opacity-40`}>
+            <Link to='/login' className={`block py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
+              Iniciar Sesión
+            </Link>
+          </li>
+        )}
+        {isLogged && (
+          <li className={`w-full md:w-auto text-center opacity-40`}>
+            <Link to='/tienda/ordenes' className={`block py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>
+              Mis Compras
+            </Link>
+          </li>
+        )}
 
         <li className={`w-full md:w-auto text-center ${totalProducts > 0 ? 'opacity-100' : 'opacity-40'}`}>
           <button onClick={toggleCart} className={`py-2 md:py-0 ${isMobileMenuOpen ? 'text-white' : 'text-white'}`}>

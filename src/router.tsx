@@ -11,6 +11,8 @@ import PagarPage from './pages/tienda/pagar'
 import SuccessPage from './pages/tienda/success'
 import DevolverPage from './pages/tienda/devolver'
 import LoginPage from './pages/auth/login'
+import MisCompras from './pages/tienda/compras'
+import OrderPage from './pages/tienda/order'
 
 const routes = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const routes = createBrowserRouter([
       {
         path: '/tienda/devolver',
         element: <DevolverPage />,
+      },
+      {
+        path: '/tienda/ordenes',
+        element: <MisCompras />,
+      },
+      {
+        path: '/tienda/orden/:id',
+        element: <OrderPage />,
       },
     ],
   },

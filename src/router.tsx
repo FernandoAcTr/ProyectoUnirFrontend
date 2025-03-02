@@ -10,6 +10,7 @@ import DetalleProducto from './pages/tienda/detalle'
 import PagarPage from './pages/tienda/pagar'
 import SuccessPage from './pages/tienda/success'
 import DevolverPage from './pages/tienda/devolver'
+import LoginPage from './pages/auth/login'
 
 const routes = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const routes = createBrowserRouter([
         path: '/tienda/devolver',
         element: <DevolverPage />,
       },
+      {
+        path: '/login',
+        element: <LoginPage />,
+      }
     ],
   },
 ])

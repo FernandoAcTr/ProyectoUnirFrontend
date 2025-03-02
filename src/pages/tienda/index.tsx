@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Accordion, SectionTitle } from '../../components'
 import { Category, Product } from '../../types'
 import Header from './header'
 import { productService } from '../../services/product.service'
 import { ProductCard } from './ProductCard'
 import { Link } from 'react-router'
+import { useDebounce } from '../../hooks'
 
 const Tienda = () => {
   const [sortBy, setSortBy] = useState('none')
@@ -18,6 +19,7 @@ const Tienda = () => {
   const [selectedShape, setSelectedShape] = useState<string | null>(null)
   const [selectedType, setSelectedType] = useState<string | null>(null)
   const [query, setQuery] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     productService.getCategories().then(setCategories)
@@ -40,7 +42,7 @@ const Tienda = () => {
         tipoArmazon: selectedType ?? undefined,
       })
       .then(setProducts)
-  }, [selectedCategory, selectedBrand, selectedShape, selectedType, query])
+  }, [selectedCategory, selectedBrand, selectedShape, selectedType, searchTerm])
 
   const sortProducts = (products: Product[]) => {
     switch (sortBy) {
@@ -73,6 +75,11 @@ const Tienda = () => {
         break
     }
   }
+
+  const onSearch = useCallback(
+    useDebounce((search: string) => setSearchTerm(search), 400),
+    []
+  )
 
   const sortedAndFilteredProducts = sortProducts(products)
 
@@ -155,7 +162,10 @@ const Tienda = () => {
               type='text'
               placeholder='Buscar productos...'
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value)
+                onSearch(e.target.value)
+              }}
               className='w-96 p-2 border border-gray-300 rounded'
             />
             <select

@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react'
-import { Product } from '../types'
-
-type CartItem = Product & { quantity: number }
+import { CartItem, Product } from '../types'
 
 type ContextType = {
   products: CartItem[]

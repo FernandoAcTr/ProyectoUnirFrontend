@@ -5,9 +5,11 @@ import { formatMoney } from '../../../utils/text'
 import { orderService } from '../../../services/order.service'
 import { useState } from 'react'
 import { Spinner } from '../../../components'
+import { useAuthContext } from '../../../context/auth.context'
 
 const PagarPage = () => {
   const { products, removeProduct, addProduct, closeCart } = useCartContextContext()
+  const { isLogged } = useAuthContext()
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
@@ -16,6 +18,11 @@ const PagarPage = () => {
   const total = subtotal + iva
 
   const handlePay = async () => {
+    if (!isLogged) {
+      navigate('/login?redirect=/tienda/pagar')
+      return
+    }
+
     setIsLoading(true)
     await orderService.payOrder(products)
     navigate(`/tienda/orden/${Math.floor(Math.random() * 1000)}/success`)

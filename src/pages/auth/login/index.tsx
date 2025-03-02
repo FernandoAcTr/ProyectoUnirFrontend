@@ -29,7 +29,10 @@ const LoginPage = () => {
 
     await login(formData.email, formData.password)
 
-    navigate('/tienda')
+    const params = new URLSearchParams(window.location.search)
+    const redirect = params.get('redirect')
+
+    navigate(redirect || '/tienda')
   }
 
   return (

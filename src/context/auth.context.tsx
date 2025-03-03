@@ -7,6 +7,7 @@ type ContextType = {
   isLogged: boolean
   login: (email: string, password: string) => Promise<void>
   logout: () => Promise<void>
+  register: (name: string, email: string, password: string) => Promise<void>
 }
 
 const AuthContext = createContext<ContextType | null>(null)
@@ -33,7 +34,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(undefined)
   }
 
-  return <AuthContext.Provider value={{ user, isLogged, login, logout }}>{children}</AuthContext.Provider>
+  const register = async (name: string, email: string, password: string) => {
+    await authService.register(name, email, password)
+    const user = await authService.getUser()
+    setUser(user)
+  }
+
+  return <AuthContext.Provider value={{ user, isLogged, login, logout, register }}>{children}</AuthContext.Provider>
 }
 
 export const useAuthContext = () => useContext(AuthContext)!

@@ -10,9 +10,10 @@ import DetalleProducto from './pages/tienda/detalle'
 import PagarPage from './pages/tienda/pagar'
 import SuccessPage from './pages/tienda/success'
 import DevolverPage from './pages/tienda/devolver'
-import LoginPage from './pages/auth/login'
 import MisCompras from './pages/tienda/compras'
 import OrderPage from './pages/tienda/order'
+import LoginPage from './pages/auth/login'
+import RegisterPage from './pages/auth/register'
 
 const routes = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const routes = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />,
   },
 ])
 
